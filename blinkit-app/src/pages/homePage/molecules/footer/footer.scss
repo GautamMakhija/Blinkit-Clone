@@ -1,0 +1,56 @@
+@import '../../styles/mixin';
+
+.fotter{
+    @include flexProp(space-between,none,wrap);
+    background-color: rgba(246, 240, 240, 0.36);
+    .leftFooterSection{
+        margin-right: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 10rem;
+        width: 28rem;
+        .address{
+            color: grey;
+        }
+    }
+    .middleFooterSection{
+        margin-right: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        @include flexProp(none,none,wrap);
+        width: 30rem;
+        .downloadText{
+            font-weight: bolder;
+            padding-right: 1rem;
+            text-align: center;
+            padding-top: 0.6rem;
+            color: grey;
+
+        }
+    }
+    .rightFooterSection{
+        margin-right: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        width: 12rem;
+        margin-left: 4rem;
+
+    }
+    .appStoreImg{
+        width: 8rem;
+        height:2.5rem;
+        text-align: center;
+        margin-right: 1rem;
+    }
+    .playStoreImg{
+        width: 8rem;
+        height:2.5rem;
+        text-align: center;
+    }
+    .socialMedia{
+        padding-right: 0.3rem;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
