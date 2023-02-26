@@ -1,0 +1,1 @@
+export const DESCRIPTION_ABOUT_BLINKIT = `"Blinkit" is owned & managed by "Blink Commerce Private Limited" (formely known as Grofers India Private Limited) and is not related, linked or interconnected in whatsover manner or nature, to "GROFFR.COM" which is real estate services business operated by "Redstone Consultancy Services Private Limited".`;
