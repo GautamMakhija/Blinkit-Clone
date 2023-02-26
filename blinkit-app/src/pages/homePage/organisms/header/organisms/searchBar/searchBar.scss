@@ -1,0 +1,19 @@
+@import "../../../../../styles/mixin";
+
+.searchBar{
+    @include flexProp(space-around,none,wrap);
+    flex-grow: 4;
+    flex-shrink: 4;
+    width: 40rem;
+    height:2.5rem;
+    overflow: hidden;
+}
+.searchInput{
+    width:50rem;
+    height: 2rem;
+    overflow: hidden;
+    margin-top: 0.1rem;
+    border: 0.03rem solid rgb(238, 231, 231);
+
+    box-shadow: 0.12rem 0.12rem rgb(238, 231, 231);
+ }
