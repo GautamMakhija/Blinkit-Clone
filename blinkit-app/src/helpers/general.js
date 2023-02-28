@@ -8,7 +8,6 @@ export const addItemInCart = (index, thisObj, vegetables, selectedItem) => {
     selectedItem: selectedItem,
   });
 };
-
 export const subtractItemFromCart = (
   index,
   thisObj,
