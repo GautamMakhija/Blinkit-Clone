@@ -1,31 +1,10 @@
 //constants
-import {SOURCE_IMG} from "../constants/productContainer.general"
+import { SOURCE_IMG } from "../constants/productContainer.general";
 
-export const addItemInCart = (index, thisObj, vegetables, selectedItem) => {
-  vegetables[index].quantity = vegetables[index]?.quantity + 1;
-  selectedItem.count += 1;
-  selectedItem.amount += vegetables[index]?.currentPrice;
-  selectedItem.oldAmount += vegetables[index]?.oldPrice;
-  thisObj.setState({
-    vegetables: vegetables,
-    selectedItem: selectedItem,
-  });
-};
-export const subtractItemFromCart = (
-  index,
-  thisObj,
-  vegetables,
-  selectedItem
-) => {
-  vegetables[index].quantity = vegetables[index]?.quantity - 1;
-  selectedItem.count -= 1;
-  selectedItem.amount -= vegetables[index]?.currentPrice;
-  selectedItem.oldAmount -= vegetables[index]?.oldPrice;
-  thisObj.setState({
-    vegetables: vegetables,
-    selectedItem: selectedItem,
-  });
-};
+import {
+  addItemInCart,
+  renderPlusMinusBtnWithQuantities,
+} from "../../../../../../.././../../helpers/general";
 
 const renderAddBtn = (vegetable, parentThisObj, vegetables, selectedItem) => {
   return (
@@ -46,53 +25,12 @@ const renderAddBtn = (vegetable, parentThisObj, vegetables, selectedItem) => {
     </div>
   );
 };
-const renderPlusMinusBtnWithQuantities = (
-  vegetable,
-  parentThisObj,
-  vegetables,
-  selectedItem
-) => {
-  return (
-    <div className="plusMinusBtn">
-      <button
-        className={"minus minus-" + vegetable.vegetableId}
-        onClick={() =>
-          subtractItemFromCart(
-            vegetable.itemId,
-            parentThisObj,
-            vegetables,
-            selectedItem
-          )
-        }>
-        -
-      </button>
-
-      <span className={"count count-" + vegetable.vegetableId}>
-        {vegetable.quantity}
-      </span>
-
-      <button
-        className={"plus plus-" + vegetable.vegetableId}
-        onClick={() =>
-          addItemInCart(
-            vegetable.itemId,
-            parentThisObj,
-            vegetables,
-            selectedItem
-          )
-        }>
-        +
-      </button>
-    </div>
-  );
-};
-
-
 
 export const renderProductsContainer = (
   vegetables,
   parentThisObj,
-  selectedItem
+  selectedItem,
+  isHomePage
 ) => {
   return vegetables.map((vegetable) => {
     return (
@@ -101,8 +39,7 @@ export const renderProductsContainer = (
         id={vegetable.vegetableId}
         className={"productProperty " + vegetable.visibility}>
         <div className="productOffer">{vegetable.offer}</div>
-        <img src={vegetable.imgSrc} alt="vegetable" className="productImage"/>
-       
+        <img src={vegetable.imgSrc} alt="vegetable" className="productImage" />
 
         <div className="productSource">
           {SOURCE_IMG}
@@ -126,7 +63,8 @@ export const renderProductsContainer = (
                 vegetable,
                 parentThisObj,
                 vegetables,
-                selectedItem
+                selectedItem,
+                isHomePage
               )}
         </div>
       </div>

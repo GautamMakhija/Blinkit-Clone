@@ -12,14 +12,14 @@ import { DESCRIPTION_ABOUT_BLINKIT } from "../../constants/descriptionAboutBlink
 import { HEADER_CONFIG } from "../../constants/general";
 
 //CSS
-import "./homePage.scss";
+import "./checkoutPage.scss";
 
-class HomePage extends Component {
+class CheckoutPage extends Component {
   render() {
     const { ...state } = this.props.state;
     const parentThisObj = this.props.parentThisObj;
     return (
-      <div className="homePage">
+      <div className="checkoutPage">
         <Header {...state} parentThisObj={parentThisObj} {...HEADER_CONFIG} />
         <SubHeader />
         <MainContainer parentThisObj={parentThisObj} state={state} />
@@ -33,4 +33,4 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+export default CheckoutPage;

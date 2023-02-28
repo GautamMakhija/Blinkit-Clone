@@ -1,6 +1,6 @@
 @import '../../../../../../../../styles/mixin';
 
-.productContainer{
+.productsContainer{
     @include flexProp(none,none,wrap);
     .productProperty{
         border: 0.03rem solid rgb(238, 231, 231);
@@ -73,7 +73,7 @@
     border: 0.03rem solid green;
     font-weight: bolder;
 }
-.plusMinusBtn{
+.plusMinusBtnWithQuantites{
     background-color:rgba(0, 128, 0,0.9);
 }
 .addingBtn{
@@ -85,7 +85,7 @@
         cursor: pointer;
     }
 }
-.minus , .count, .plus{
+.minusBtn , .selectedVegetableCount, .plusBtn{
     color:white;
     font-weight: bolder;
     background: none;
@@ -93,7 +93,9 @@
     &:hover{
         cursor: pointer;
     }
+    margin-top: 0rem;
 }
-.count{
-    margin: auto;
+.selectedVegetableCount{
+    margin-top: auto ;
+    margin-bottom: auto;
 }

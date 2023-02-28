@@ -1,5 +1,9 @@
 //helpers
-import { renderLeftHeader,renderMiddleHeader,renderRightHeader } from "../helpers/general";
+import {
+  renderLeftHeader,
+  renderMiddleHeader,
+  renderRightHeader,
+} from "../helpers/headerComponent";
 
 export const HEADER_CONFIG = {
   className: "mainHeader",

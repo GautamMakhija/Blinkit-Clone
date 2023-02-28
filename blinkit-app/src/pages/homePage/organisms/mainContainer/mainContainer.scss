@@ -1,6 +1,6 @@
 @import '../../../../styles/mixin';
 
-.mainContainer{
+.homePageMainContainer{
     @include flexProp(space-around,none,nowrap);
     width: auto;
 }
