@@ -1,35 +1,9 @@
-export const addItemInCart = (index, thisObj, vegetables, selectedItem) => {
-  vegetables[index].quantity = vegetables[index]?.quantity + 1;
-  selectedItem.count += 1;
-  selectedItem.amount += vegetables[index]?.currentPrice;
-  selectedItem.oldAmount += vegetables[index]?.oldPrice;
-  thisObj.setState({
-    vegetables: vegetables,
-    selectedItem: selectedItem,
-  });
-};
-export const subtractItemFromCart = (
-  index,
-  thisObj,
-  vegetables,
-  selectedItem
-) => {
-  vegetables[index].quantity = vegetables[index]?.quantity - 1;
-  selectedItem.count -= 1;
-  selectedItem.amount -= vegetables[index]?.currentPrice;
-  selectedItem.oldAmount -= vegetables[index]?.oldPrice;
-  thisObj.setState({
-    vegetables: vegetables,
-    selectedItem: selectedItem,
-  });
-};
+import {
+  addItemInCart,
+  subtractItemFromCart,
+} from "../../../../../../../../../helpers/general";
 
-const renderAddBtn = (
-  vegetable,
-  parentThisObj,
-  vegetables,
-  selectedItem
-) => {
+const renderAddBtn = (vegetable, parentThisObj, vegetables, selectedItem) => {
   return (
     <div className="addingBtnDiv">
       <button
@@ -52,7 +26,8 @@ const renderPlusMinusBtnWithQuantities = (
   vegetable,
   parentThisObj,
   vegetables,
-  selectedItem
+  selectedItem,
+  isHomePage
 ) => {
   return (
     <div className="plusMinusBtn">
@@ -63,7 +38,8 @@ const renderPlusMinusBtnWithQuantities = (
             vegetable.itemId,
             parentThisObj,
             vegetables,
-            selectedItem
+            selectedItem,
+            isHomePage
           )
         }>
         -
@@ -92,7 +68,8 @@ const renderPlusMinusBtnWithQuantities = (
 export const addProductContainer = (
   vegetables,
   parentThisObj,
-  selectedItem
+  selectedItem,
+  isHomePage
 ) => {
   return vegetables.map((vegetable) => {
     return (
@@ -125,17 +102,13 @@ export const addProductContainer = (
           </div>
 
           {vegetable.quantity === 0
-            ? renderAddBtn(
-                vegetable,
-                parentThisObj,
-                vegetables,
-                selectedItem
-              )
+            ? renderAddBtn(vegetable, parentThisObj, vegetables, selectedItem)
             : renderPlusMinusBtnWithQuantities(
                 vegetable,
                 parentThisObj,
                 vegetables,
-                selectedItem
+                selectedItem,
+                isHomePage
               )}
         </div>
       </div>

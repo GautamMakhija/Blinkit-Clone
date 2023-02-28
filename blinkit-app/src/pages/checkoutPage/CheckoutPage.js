@@ -1,23 +1,24 @@
 import React, { Component } from "react";
 
 //Constant
-import { VEGETABLES, SELECTED_ITEM } from "../../constants/homePage.vegetableData";
-import { DESCRIPTION_ABOUT_BLINKIT } from "../../constants/homePage.descriptionAboutBlinkit";
-import { BLINKIT_INFO } from "../../molecules/footer/constants/footer.general";
+import { DESCRIPTION_ABOUT_BLINKIT } from "../../constants/descriptionAboutBlinkit";
 
 //organisms
 import Header from "../../organisms/header";
 import MainContainer from "./organisms/mainContainer";
 
 //molecules
-import SubHeader from "../../molecules/subHeader";
 import Specialities from "../../molecules/specialities";
+import SubHeader from "../../molecules/subHeader";
 import Footer from "../../molecules/footer";
 
-//CSS
-import "./homePage.scss";
+//atoms
+import AboutBlinkit from "../../atoms/aboutBlinkit";
 
-class HomePage extends Component {
+//CSS
+import "./checkoutPage.scss";
+
+class CheckoutPage extends Component {
   render() {
     const { ...state } = this.props.state;
     const parentThisObj = this.props.parentThisObj;
@@ -27,13 +28,11 @@ class HomePage extends Component {
         <SubHeader />
         <MainContainer parentThisObj={parentThisObj} state={state} />
         <Specialities />
-        <section className="aboutContainer">
-          {DESCRIPTION_ABOUT_BLINKIT}
-        </section>
+        <AboutBlinkit description={DESCRIPTION_ABOUT_BLINKIT} />
         <Footer />
       </div>
     );
   }
 }
 
-export default HomePage;
+export default CheckoutPage;
