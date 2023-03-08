@@ -7,7 +7,10 @@ import SelectInput from "../../../../molecules/selectInput";
 import "./leftHeaderSection.scss";
 
 //constant
-import { LOCATIONS ,DELIVERY_TIME} from "./constants/leftHeaderSection.general";
+import {
+  LOCATIONS,
+  DELIVERY_TIME,
+} from "./constants/leftHeaderSection.general";
 
 class LeftHeaderSection extends Component {
   render() {
@@ -51,7 +54,9 @@ class LeftHeaderSection extends Component {
           </svg>
         </div>
         <div className="location">
-          <div className="deliveryTime">Delivery in {DELIVERY_TIME} minutes</div>
+          <div className="deliveryTime">
+            Delivery in {DELIVERY_TIME} minutes
+          </div>
           <SelectInput
             name="Location"
             id="locationOptions"

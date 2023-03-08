@@ -1,4 +1,4 @@
-@import '../../../../styles/mixin';
+@import '../../styles/mixin';
 
 .header{
     @include flexProp(space-between,center,wrap);

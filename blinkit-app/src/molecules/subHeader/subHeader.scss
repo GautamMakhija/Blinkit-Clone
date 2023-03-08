@@ -1,4 +1,4 @@
-@import '../../../../styles/mixin';
+@import '../../styles/mixin';
 .subHeader{
     @include flexProp(space-around,none,wrap);
     border-top: 0.03rem solid rgb(238, 231, 231);

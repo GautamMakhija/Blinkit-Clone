@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 
 //Constant
-import { VEGETABLES, SELECTED_ITEM } from "./constants/homePage.vegetableData";
-import { DESCRIPTION_ABOUT_BLINKIT } from "./constants/homePage.descriptionAboutBlinkit";
-import { BLINKIT_INFO } from "./molecules/footer/constants/footer.general";
+import { VEGETABLES, SELECTED_ITEM } from "../../constants/homePage.vegetableData";
+import { DESCRIPTION_ABOUT_BLINKIT } from "../../constants/homePage.descriptionAboutBlinkit";
+import { BLINKIT_INFO } from "../../molecules/footer/constants/footer.general";
 
 //organisms
-import Header from "./organisms/header";
+import Header from "../../organisms/header";
 import MainContainer from "./organisms/mainContainer";
 
 //molecules
-import SubHeader from "./molecules/subHeader";
-import Specialities from "./molecules/specialities";
-import Footer from "./molecules/footer";
+import SubHeader from "../../molecules/subHeader";
+import Specialities from "../../molecules/specialities";
+import Footer from "../../molecules/footer";
 
 //CSS
 import "./homePage.scss";
