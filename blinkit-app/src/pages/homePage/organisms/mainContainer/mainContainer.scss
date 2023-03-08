@@ -1,4 +1,4 @@
-@import '../../styles/mixin';
+@import '../../../../styles/mixin';
 
 .mainContainer{
     @include flexProp(space-around,none,nowrap);

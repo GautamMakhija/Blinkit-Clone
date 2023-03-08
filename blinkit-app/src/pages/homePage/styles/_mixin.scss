@@ -1,6 +1,0 @@
-@mixin flexProp($prop1,$prop2,$prop3){
-    display: flex;
-    justify-content: $prop1;
-    align-items: $prop2;
-    flex-wrap: $prop3
-}
