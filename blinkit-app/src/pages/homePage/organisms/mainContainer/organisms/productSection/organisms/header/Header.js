@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
 //molecules
-import SelectInput from "../../../../../../molecules/selectInput";
+import SelectInput from "../../../../../../../../molecules/selectInput";
 
 //CSS
 import "./header.scss";
 
 //constant
-import { FILTER_OPTIONS,HEADER_TEXT } from "./constants/header.general";
+import { FILTER_OPTIONS, HEADER_TEXT } from "./constants/header.general";
 
 import { handleFilterEvent } from "./helpers/header.general";
 
@@ -32,8 +32,8 @@ class Header extends Component {
   }
 }
 
-Header.defaultProps=({
-  headerText:HEADER_TEXT
-})
+Header.defaultProps = {
+  headerText: HEADER_TEXT,
+};
 
 export default Header;
