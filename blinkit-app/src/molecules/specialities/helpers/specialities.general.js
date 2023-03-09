@@ -1,4 +1,4 @@
-export const addSpecialityContainer = ({
+export const renderSpecialityContainer = ({
   src,
   name,
   title,

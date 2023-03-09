@@ -1,4 +1,4 @@
-export const addImgWithNameInSidebar = ({ name, key, src }) => {
+export const renderImgWithNameInSidebar = ({ name, key, src }) => {
   return (
     <div key={key} className="sideBarDiv">
       <img src={src} alt={name} className="sideBarImg" />

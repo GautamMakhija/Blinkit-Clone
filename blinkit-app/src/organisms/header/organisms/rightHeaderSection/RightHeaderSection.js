@@ -1,19 +1,26 @@
 import React, { Component } from "react";
 
 //helper function
-import { renderCartBtn } from "./helpers/rightHeaderSection.general";
+import {
+  renderCartBtn,
+  redirectToCheckoutPage,
+} from "./helpers/rightHeaderSection.general";
 
 //CSS
 import "./rightHeaderSection.scss";
 
 class RightHeaderSection extends Component {
   render() {
-    const selectedItem = this.props.selectedItem;
+    const { selectedItem, parentThisObj, isHomePage } = this.props;
     return (
       <div className="loginCart">
         <div className="login">Login</div>
         <div>
-          <button className="cart">
+          <button
+            className="cart"
+            onClick={() =>
+              redirectToCheckoutPage(isHomePage, parentThisObj, selectedItem)
+            }>
             <div className="cartLogo">🛒</div>
             {renderCartBtn(selectedItem)}
           </button>

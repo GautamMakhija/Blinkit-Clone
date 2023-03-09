@@ -7,11 +7,13 @@ import "./sidebar.scss";
 import { VEGETABLES_IMAGES_INFO } from "./constants/sidebar.general";
 
 //helper function
-import { addImgWithNameInSidebar } from "./helpers/sidebar.general";
+import { renderImgWithNameInSidebar } from "./helpers/sidebar.general";
 
 class Sidebar extends Component {
   sidebarImgs = (
-    <div className="sidebar">{VEGETABLES_IMAGES_INFO.map(addImgWithNameInSidebar)}</div>
+    <div className="sidebar">
+      {VEGETABLES_IMAGES_INFO.map(renderImgWithNameInSidebar)}
+    </div>
   );
   render() {
     return this.sidebarImgs;
