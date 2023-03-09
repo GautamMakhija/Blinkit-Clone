@@ -22,3 +22,8 @@ export const LOCATIONS = [
 ];
 
 export const DELIVERY_TIME = 10;
+
+export const LOGO_IMG_DETAILS = {
+  src: "https://blinkit.com/9f644712ea8611916099.png",
+  alt: "logo",
+};

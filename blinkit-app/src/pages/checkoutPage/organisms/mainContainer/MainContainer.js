@@ -9,6 +9,12 @@ import EmptyCartContainer from "./organisms/emptyCartContainer";
 //CSS
 import "./mainContainer.scss";
 
+//constant
+import { EMPTY_CART_IMG_DETAIL } from "./constants/mainContainer.general";
+
+//helper
+import { redirectToHomePage } from "../../../../helpers/general";
+
 class MainContainer extends Component {
   render() {
     const parentThisObj = this.props.parentThisObj;

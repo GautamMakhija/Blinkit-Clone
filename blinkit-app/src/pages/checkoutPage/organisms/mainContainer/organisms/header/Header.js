@@ -9,7 +9,7 @@ import { handleClearCartBtn } from "./helpers/header.general";
 class Header extends Component {
   render() {
     const parentThisObj = this.props.parentThisObj;
-    const { vegetables, selectedItem ,isHomePage} = this.props.state;
+    const { vegetables, selectedItem } = this.props.state;
     return (
       <div className="headerSection">
         <div className="headerText">Place Order</div>
@@ -22,7 +22,7 @@ class Header extends Component {
             <button
               className="clearCartBtn"
               onClick={() => {
-                handleClearCartBtn(vegetables, parentThisObj, selectedItem,isHomePage);
+                handleClearCartBtn(vegetables, parentThisObj, selectedItem);
               }}>
               Clear Cart
             </button>
