@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 
 //Constant
-import { VEGETABLES, SELECTED_ITEM } from "../../constants/homePage.vegetableData";
 import { DESCRIPTION_ABOUT_BLINKIT } from "../../constants/homePage.descriptionAboutBlinkit";
-import { BLINKIT_INFO } from "../../molecules/footer/constants/footer.general";
 
 //organisms
 import Header from "../../organisms/header";

@@ -7,10 +7,10 @@ import "./specialities.scss";
 import { SPECIALITY_DATA } from "./constants/specialities.specialityData";
 
 //helper functions
-import { addSpecialityContainer } from "./helpers/specialities.general";
+import { renderSpecialityContainer } from "./helpers/specialities.general";
 
 export class Specialities extends Component {
-  specialitiesContainer = SPECIALITY_DATA.map(addSpecialityContainer);
+  specialitiesContainer = SPECIALITY_DATA.map(renderSpecialityContainer);
   render() {
     return <div className="speciality">{this.specialitiesContainer}</div>;
   }

@@ -12,9 +12,6 @@ import Specialities from "../../molecules/specialities";
 import SubHeader from "../../molecules/subHeader";
 import Footer from "../../molecules/footer";
 
-//atoms
-import AboutBlinkit from "../../atoms/aboutBlinkit";
-
 //CSS
 import "./checkoutPage.scss";
 
@@ -23,12 +20,14 @@ class CheckoutPage extends Component {
     const { ...state } = this.props.state;
     const parentThisObj = this.props.parentThisObj;
     return (
-      <div className="homePage">
+      <div className="checkoutPage">
         <Header state={state} parentThisObj={parentThisObj} />
         <SubHeader />
         <MainContainer parentThisObj={parentThisObj} state={state} />
         <Specialities />
-        <AboutBlinkit description={DESCRIPTION_ABOUT_BLINKIT} />
+        <section className="aboutContainer">
+          {DESCRIPTION_ABOUT_BLINKIT}
+        </section>
         <Footer />
       </div>
     );

@@ -12,7 +12,7 @@ class ProductContainer extends Component {
     const { vegetables, selectedItem,isHomePage } = this.props.state;
     return (
       <div className="productContainer">
-        {addProductContainer(vegetables, parentThisObj, selectedItem,isHomePage)}
+        {addProductContainer(vegetables, parentThisObj, selectedItem)}
       </div>
     );
   }

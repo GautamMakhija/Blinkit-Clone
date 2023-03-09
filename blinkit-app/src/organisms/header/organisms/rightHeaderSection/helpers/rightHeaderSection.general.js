@@ -1,4 +1,4 @@
-export const displayCartContent = (selectedItem) => {
+export const renderCartBtn = (selectedItem) => {
   if (selectedItem.count === 0) return <div id="cartItemCount">My Cart</div>;
   else {
     return (
@@ -8,8 +8,7 @@ export const displayCartContent = (selectedItem) => {
     );
   }
 };
-
-export const gotoCheckoutPage = (isHomePage, thisObj, selectedItem) => {
+export const redirectToCheckoutPage = (isHomePage, thisObj, selectedItem) => {
   if (selectedItem.count > 0) isHomePage = false;
   else
     alert(

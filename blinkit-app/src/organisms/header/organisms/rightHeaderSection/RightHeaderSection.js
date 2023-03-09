@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 //helper function
 import {
-  displayCartContent,
-  gotoCheckoutPage,
+  renderCartBtn,
+  redirectToCheckoutPage,
 } from "./helpers/rightHeaderSection.general";
 
 //CSS
@@ -11,7 +11,7 @@ import "./rightHeaderSection.scss";
 
 class RightHeaderSection extends Component {
   render() {
-    const { selectedItem, isHomePage, parentThisObj } = this.props;
+    const { selectedItem, parentThisObj, isHomePage } = this.props;
     return (
       <div className="loginCart">
         <div className="login">Login</div>
@@ -19,10 +19,10 @@ class RightHeaderSection extends Component {
           <button
             className="cart"
             onClick={() =>
-              gotoCheckoutPage(isHomePage, parentThisObj, selectedItem)
+              redirectToCheckoutPage(isHomePage, parentThisObj, selectedItem)
             }>
             <div className="cartLogo">🛒</div>
-            {displayCartContent(selectedItem)}
+            {renderCartBtn(selectedItem)}
           </button>
         </div>
       </div>

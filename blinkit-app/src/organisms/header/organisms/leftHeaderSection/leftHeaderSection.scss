@@ -1,17 +1,21 @@
 @import '../../../../styles/mixin';
 
-.blinkitLogo:hover{
-    
-    cursor: pointer;
+.blinkitLogo{
+    width: 6rem;
+    height: 5rem;;
+    &:hover{
+        cursor: pointer;
+    }
 }
 .leftHeader{
     @include flexProp(space-between,center,wrap);
 }
 .logo{
-    padding-right: 0.5rem;
+    padding-right: 0.9rem;
     border-right: 0.1rem solid rgb(238, 231, 231);
 }
 .location{
+    padding-left: 0.3rem;
     .deliveryTime{
         font-weight: bolder;
         font-size: larger;

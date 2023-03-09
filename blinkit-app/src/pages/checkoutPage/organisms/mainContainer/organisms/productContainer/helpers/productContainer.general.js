@@ -7,8 +7,7 @@ export const deleteItemFromCart = (
   index,
   thisObj,
   vegetables,
-  selectedItem,
-  isHomePage
+  selectedItem
 ) => {
   selectedItem.count -= vegetables[index].quantity;
   selectedItem.amount -=
@@ -16,13 +15,9 @@ export const deleteItemFromCart = (
   selectedItem.oldAmount -=
     vegetables[index].oldPrice * vegetables[index].quantity;
   vegetables[index].quantity = 0;
-  if (selectedItem.count === 0) {
-    isHomePage = true;
-  }
   thisObj.setState({
     vegetables: vegetables,
     selectedItem: selectedItem,
-    isHomePage,
   });
 };
 
@@ -30,8 +25,7 @@ export const renderPlusMinusBtnWithQuantities = (
   vegetable,
   parentThisObj,
   vegetables,
-  selectedItem,
-  isHomePage
+  selectedItem
 ) => {
   return (
     <>
@@ -43,8 +37,7 @@ export const renderPlusMinusBtnWithQuantities = (
             vegetable.itemId,
             parentThisObj,
             vegetables,
-            selectedItem,
-            isHomePage
+            selectedItem
           )
         }>
         -
@@ -75,8 +68,7 @@ export const renderPlusMinusBtnWithQuantities = (
             vegetable.itemId,
             parentThisObj,
             vegetables,
-            selectedItem,
-            isHomePage
+            selectedItem
           );
         }}>
         x
@@ -88,8 +80,7 @@ export const renderPlusMinusBtnWithQuantities = (
 export const addProductContainer = (
   vegetables,
   parentThisObj,
-  selectedItem,
-  isHomePage
+  selectedItem
 ) => {
   return vegetables.map((vegetable) => {
     if (vegetable.quantity > 0) {
@@ -122,8 +113,7 @@ export const addProductContainer = (
                 vegetable,
                 parentThisObj,
                 vegetables,
-                selectedItem,
-                isHomePage
+                selectedItem
               )}
             </div>
           </div>

@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 
-//Molecules
-import LeftHeaderSection from "./molecules/leftHeaderSection";
-import RightHeaderSection from "./molecules/rightHeaderSection";
-
 //Organisms
+import LeftHeaderSection from "./organisms/leftHeaderSection";
+import RightHeaderSection from "./organisms/rightHeaderSection";
 import SearchBar from "./organisms/searchBar";
 
 //CSS
