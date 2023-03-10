@@ -6,20 +6,13 @@ import {
   renderPlusMinusBtnWithQuantities,
 } from "../../../../../../.././../../helpers/general";
 
-const renderAddBtn = (vegetable, parentThisObj, vegetables, selectedItem) => {
+const renderAddBtn = (vegetable, dispatch) => {
   return (
     <div className="addingBtnDiv">
       <button
         className={"addingBtn addingBtn-" + vegetable.vegetableId}
         index={vegetable.vegetableId}
-        onClick={() =>
-          addItemInCart(
-            vegetable.itemId,
-            parentThisObj,
-            vegetables,
-            selectedItem
-          )
-        }>
+        onClick={() => dispatch(addItemInCart(vegetable.itemId))}>
         ADD
       </button>
     </div>
@@ -58,14 +51,8 @@ export const renderProductsContainer = (
           </div>
 
           {vegetable.quantity === 0
-            ? renderAddBtn(vegetable, parentThisObj, vegetables, selectedItem)
-            : renderPlusMinusBtnWithQuantities(
-                vegetable,
-                parentThisObj,
-                vegetables,
-                selectedItem,
-                isHomePage
-              )}
+            ? renderAddBtn(vegetable, dispatch)
+            : renderPlusMinusBtnWithQuantities(vegetable, dispatch)}
         </div>
       </div>
     );

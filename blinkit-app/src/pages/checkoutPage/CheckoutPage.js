@@ -16,13 +16,11 @@ import "./checkoutPage.scss";
 
 class CheckoutPage extends Component {
   render() {
-    const { ...state } = this.props.state;
-    const parentThisObj = this.props.parentThisObj;
     return (
       <div className="checkoutPage">
-        <Header {...state} parentThisObj={parentThisObj} {...HEADER_CONFIG} />
+        <Header  {...HEADER_CONFIG} />
         <SubHeader />
-        <MainContainer parentThisObj={parentThisObj} state={state} />
+        <MainContainer />
         <Specialities />
         <section className="aboutContainer">
           {DESCRIPTION_ABOUT_BLINKIT}
@@ -34,3 +32,4 @@ class CheckoutPage extends Component {
 }
 
 export default CheckoutPage;
+// {...state} parentThisObj={parentThisObj}

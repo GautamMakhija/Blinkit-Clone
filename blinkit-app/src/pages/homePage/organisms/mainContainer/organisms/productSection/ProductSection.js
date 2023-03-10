@@ -13,8 +13,6 @@ import "./productSection.scss";
 
 class ProductSection extends Component {
   render() {
-    const parentThisObj = this.props.parentThisObj;
-    const { ...state } = this.props.state;
     return (
       <div className="productSection">
         <Header parentThisObj={parentThisObj} headerText={HEADER_TEXT} {...HEADER_CONFIG}/>

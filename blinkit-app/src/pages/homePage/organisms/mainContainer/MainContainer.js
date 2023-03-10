@@ -13,12 +13,10 @@ class MainContainer extends Component {
     this.sideBar = <Sidebar />;
   }
   render() {
-    const parentThisObj = this.props.parentThisObj;
-    const { ...state } = this.props.state;
     return (
       <section className="homePageMainContainer">
         {this.sideBar}
-        <ProductSection parentThisObj={parentThisObj} state={state} />
+        <ProductSection/>
       </section>
     );
   }

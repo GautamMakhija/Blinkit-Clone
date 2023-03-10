@@ -70,6 +70,47 @@ export const renderProductsContainer = (
   parentThisObj,
   selectedItem
 ) => {
+//action creators
+import {
+  addItemInCart,
+  subtractItemFromCart,
+  deleteItemFromCart,
+} from "../../../../../../../redux/actionCreator";
+
+export const renderPlusMinusBtnWithQuantities = (vegetable, dispatch) => {
+  return (
+    <>
+      <button
+        className="minusBtn"
+        id={"minus-" + vegetable.vegetableId}
+        onClick={() => dispatch(subtractItemFromCart(vegetable.itemId))}>
+        -
+      </button>
+
+      <button
+        className="selectedVegetableCount"
+        id={"count-" + vegetable.vegetableId}>
+        {vegetable.quantity}
+      </button>
+
+      <button
+        className="plusBtn"
+        id={"plus-" + vegetable.vegetableId}
+        onClick={() => dispatch(addItemInCart(vegetable.itemId))}>
+        +
+      </button>
+
+      <button
+        className="crossBtn"
+        id={"cross-" + vegetable.vegetableId}
+        onClick={() => dispatch(deleteItemFromCart(vegetable.itemId))}>
+        x
+      </button>
+    </>
+  );
+};
+
+export const addProductContainer = (vegetables, dispatch) => {
   return vegetables.map((vegetable) => {
     if (vegetable.quantity > 0) {
       return (

@@ -15,9 +15,20 @@ import { renderfinalBillContainer } from "./helpers/billingContainer.general";
 //CSS
 import "./billingContainer.scss";
 
+//connect state
+import { connect } from "react-redux";
+
+//constant
+import { SHIPPING_CHARGE } from "./constants/billingContainer.general";
+
+//helper
+import { calculateTotalSelectedItemCountAndAmount } from "../../../../../../helpers/app.general";
+
 export class BillingContainer extends Component {
   render() {
-    const selectedItem = this.props.selectedItem;
+    const { vegetables } = this.props;
+    const selectedItem = calculateTotalSelectedItemCountAndAmount(vegetables);
+
     return (
       <div className="billingContainer">
         <AmountBar
@@ -53,4 +64,10 @@ export class BillingContainer extends Component {
   }
 }
 
-export default BillingContainer;
+const mapStateToProps = (state) => {
+  return {
+    vegetables: state.vegetables,
+  };
+};
+
+export default connect(mapStateToProps)(BillingContainer);

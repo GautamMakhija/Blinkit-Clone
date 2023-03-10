@@ -1,23 +1,30 @@
 import React, { Component } from "react";
 
-//helper function
-import { handleSearchEvent } from "./helpers/searchBar.general";
+//action Creator
+import { handleSearchEvent } from "../../../../redux/actionCreator";
+
+//connect state
+import { connect } from "react-redux";
 
 class SearchBar extends Component {
   render() {
-    const { parentThisObj, filterValue } = this.props;
-
+    const { dispatch } = this.props;
     return (
       <div className="searchBar">
         <input
           type="text"
           placeholder="Search.."
           className="searchInput"
-          onKeyUp={handleSearchEvent(parentThisObj, filterValue)}
+          onKeyUp={(event) => dispatch(handleSearchEvent(event))}
         />
       </div>
     );
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatch: dispatch,
+  };
+};
 
-export default SearchBar;
+export default connect(null, mapDispatchToProps)(SearchBar);

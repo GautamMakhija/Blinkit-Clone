@@ -13,12 +13,15 @@ import {
   LOGO_IMG_DETAILS,
 } from "./constants/leftHeaderSection.general";
 
-//helper Function
-import { redirectToHomePage } from "../../../../helpers/general";
+//action creators
+import { redirectToHomePage } from "../../../../redux/actionCreator";
+
+//connect state
+import { connect } from "react-redux";
 
 class LeftHeaderSection extends Component {
   render() {
-    const { parentThisObj, isHomePage } = this.props;
+    const { redirectToHomePage } = this.props;
     return (
       <div className="leftHeader">
         <div className="logo">
@@ -26,7 +29,7 @@ class LeftHeaderSection extends Component {
             src={LOGO_IMG_DETAILS.src}
             alt={LOGO_IMG_DETAILS.alt}
             className="blinkitLogo"
-            onClick={() => redirectToHomePage(isHomePage, parentThisObj)}
+            onClick={redirectToHomePage}
           />
         </div>
         <div className="location">
@@ -43,4 +46,11 @@ class LeftHeaderSection extends Component {
     );
   }
 }
-export default LeftHeaderSection;
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    redirectToHomePage: () => dispatch(redirectToHomePage()),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(LeftHeaderSection);

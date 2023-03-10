@@ -6,6 +6,9 @@ import "./productContainer.scss";
 //helper function
 import { renderProductsContainer } from "./helpers/productContainer.general";
 
+//connect state
+import { connect } from "react-redux";
+
 class ProductContainer extends Component {
   render() {
     const parentThisObj = this.props.parentThisObj;
@@ -17,5 +20,15 @@ class ProductContainer extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    vegetables: state.vegetables,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatch: dispatch,
+  };
+};
 
-export default ProductContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(ProductContainer);

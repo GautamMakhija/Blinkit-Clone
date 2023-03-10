@@ -16,13 +16,11 @@ import "./homePage.scss";
 
 class HomePage extends Component {
   render() {
-    const { ...state } = this.props.state;
-    const parentThisObj = this.props.parentThisObj;
     return (
       <div className="homePage">
         <Header {...state} parentThisObj={parentThisObj} {...HEADER_CONFIG} />
         <SubHeader />
-        <MainContainer parentThisObj={parentThisObj} state={state} />
+        <MainContainer />
         <Specialities />
         <section className="aboutContainer">
           {DESCRIPTION_ABOUT_BLINKIT}
