@@ -1,33 +1,37 @@
 import React, { Component } from "react";
 
 //helper function
-import {
-  renderCartBtn,
-  redirectToCheckoutPage,
-} from "./helpers/rightHeaderSection.general";
+import { renderCartBtn } from "./helpers/rightHeaderSection.general";
 
 //CSS
 import "./rightHeaderSection.scss";
 
+//action creator
+import { redirectToCheckoutPage } from "../../../../redux/actionCreator";
+
+//connect state
+import { connect } from "react-redux";
+
 class RightHeaderSection extends Component {
   render() {
-    const { selectedItem, parentThisObj, isHomePage } = this.props;
+    const { selectedItem, redirectToCheckoutPage } = this.props;
     return (
       <div className="loginCart">
         <div className="login">Login</div>
-        <div>
-          <button
-            className="cart"
-            onClick={() =>
-              redirectToCheckoutPage(isHomePage, parentThisObj, selectedItem)
-            }>
-            <div className="cartLogo">🛒</div>
-            {renderCartBtn(selectedItem)}
-          </button>
-        </div>
+        <div>{renderCartBtn(selectedItem, redirectToCheckoutPage)}</div>
       </div>
     );
   }
 }
 
-export default RightHeaderSection;
+const mapStateToProps = (state) => {
+  return {
+    selectedItem: state.selectedItem,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    redirectToCheckoutPage: () => dispatch(redirectToCheckoutPage()),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(RightHeaderSection);

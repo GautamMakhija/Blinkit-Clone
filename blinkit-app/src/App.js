@@ -1,31 +1,24 @@
 import React from "react";
+
+//pages
 import HomePage from "./pages/homePage";
 import CheckoutPage from "./pages/checkoutPage";
 
-//Constant
-import { VEGETABLES, SELECTED_ITEM } from "./constants/app.vegetableData";
+//connect state
+import { connect } from "react-redux";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      vegetables: VEGETABLES,
-      selectedItem: SELECTED_ITEM,
-      filterValue: "Relevance",
-      isHomePage: true,
-    };
-  }
+  s;
   render() {
+    const { isHomePage } = this.props;
     return (
-      <div className="App">
-        {this.state.isHomePage ? (
-          <HomePage state={this.state} parentThisObj={this} />
-        ) : (
-          <CheckoutPage state={this.state} parentThisObj={this} />
-        )}
-      </div>
+      <div className="App">{isHomePage ? <HomePage /> : <CheckoutPage />}</div>
     );
   }
 }
-
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    isHomePage: state.isHomePage,
+  };
+};
+export default connect(mapStateToProps)(App);

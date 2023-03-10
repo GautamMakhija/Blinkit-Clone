@@ -3,13 +3,15 @@ import React, { Component } from "react";
 //CSS
 import "./header.scss";
 
-//helper function
-import { handleClearCartBtn } from "./helpers/header.general";
+//connect state
+import { connect } from "react-redux";
+
+//action creator
+import { handleClearCartBtn } from "../../../../../../redux/actionCreator";
 
 class Header extends Component {
   render() {
-    const parentThisObj = this.props.parentThisObj;
-    const { vegetables, selectedItem } = this.props.state;
+    const { selectedItem, handleClearCartBtn } = this.props;
     return (
       <div className="headerSection">
         <div className="headerText">Place Order</div>
@@ -19,11 +21,7 @@ class Header extends Component {
             <p id="selectedItemCount"> {selectedItem.count} items</p>
           </div>
           <div>
-            <button
-              className="clearCartBtn"
-              onClick={() => {
-                handleClearCartBtn(vegetables, parentThisObj, selectedItem);
-              }}>
+            <button className="clearCartBtn" onClick={handleClearCartBtn}>
               Clear Cart
             </button>
           </div>
@@ -32,5 +30,15 @@ class Header extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    selectedItem: state.selectedItem,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleClearCartBtn: () => dispatch(handleClearCartBtn()),
+  };
+};
 
-export default Header;
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

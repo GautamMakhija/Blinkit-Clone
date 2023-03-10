@@ -9,11 +9,12 @@ import "./header.scss";
 //constant
 import { FILTER_OPTIONS, HEADER_TEXT } from "./constants/header.general";
 
-import { handleFilterEvent } from "./helpers/header.general";
+//connect state
+import { connect } from "react-redux";
 
 class Header extends Component {
   render() {
-    const parentThisObj = this.props.parentThisObj;
+    const { dispatch } = this.props;
     return (
       <div className="sectionHeader">
         <div className="leftSectionHeader">{this.props.headerText}</div>
@@ -23,8 +24,7 @@ class Header extends Component {
             name="filteringProducts"
             id="filterProduct"
             values={FILTER_OPTIONS}
-            parentThisObj={parentThisObj}
-            onChange={handleFilterEvent(parentThisObj)}
+            dispatch={dispatch}
           />
         </div>
       </div>
@@ -36,4 +36,10 @@ Header.defaultProps = {
   headerText: HEADER_TEXT,
 };
 
-export default Header;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatch: dispatch,
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Header);

@@ -3,9 +3,14 @@ import React, { Component } from "react";
 //CSS
 import "./billingContainer.scss";
 
+//connect state
+import { connect } from "react-redux";
+
+//constant
+import { SHIPPING_CHARGE } from "./constants/billingContainer.general";
 export class BillingContainer extends Component {
   render() {
-    const selectedItem = this.props.selectedItem;
+    const { selectedItem } = this.props;
     return (
       <div className="billingContainer">
         <div className="selectedItemMrp">
@@ -22,7 +27,7 @@ export class BillingContainer extends Component {
           <p>Delivery charge</p>
           <p>
             {" "}
-            <span className="shippingCharge">₹15</span>{" "}
+            <span className="shippingCharge">₹{SHIPPING_CHARGE}</span>{" "}
             <span className="freeText">FREE</span>
           </p>
         </div>
@@ -50,4 +55,10 @@ export class BillingContainer extends Component {
   }
 }
 
-export default BillingContainer;
+const mapStateToProps = (state) => {
+  return {
+    selectedItem: state.selectedItem,
+  };
+};
+
+export default connect(mapStateToProps)(BillingContainer);

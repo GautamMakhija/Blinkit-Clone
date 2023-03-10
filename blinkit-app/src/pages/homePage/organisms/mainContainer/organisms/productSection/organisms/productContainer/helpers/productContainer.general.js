@@ -1,47 +1,27 @@
+//action creators
 import {
   addItemInCart,
   subtractItemFromCart,
-} from "../../../../../../../../../helpers/general";
+} from "../../../../../../../../../redux/actionCreator";
 
-const renderAddBtn = (vegetable, parentThisObj, vegetables, selectedItem) => {
+const renderAddBtn = (vegetable, dispatch) => {
   return (
     <div className="addingBtnDiv">
       <button
         className={"addingBtn addingBtn-" + vegetable.vegetableId}
         index={vegetable.vegetableId}
-        onClick={() =>
-          addItemInCart(
-            vegetable.itemId,
-            parentThisObj,
-            vegetables,
-            selectedItem
-          )
-        }>
+        onClick={() => dispatch(addItemInCart(vegetable.itemId))}>
         ADD
       </button>
     </div>
   );
 };
-const renderPlusMinusBtnWithQuantities = (
-  vegetable,
-  parentThisObj,
-  vegetables,
-  selectedItem,
-  isHomePage
-) => {
+const renderPlusMinusBtnWithQuantities = (vegetable, dispatch) => {
   return (
     <div className="plusMinusBtn">
       <button
         className={"minus minus-" + vegetable.vegetableId}
-        onClick={() =>
-          subtractItemFromCart(
-            vegetable.itemId,
-            parentThisObj,
-            vegetables,
-            selectedItem,
-            isHomePage
-          )
-        }>
+        onClick={() => dispatch(subtractItemFromCart(vegetable.itemId))}>
         -
       </button>
 
@@ -51,26 +31,14 @@ const renderPlusMinusBtnWithQuantities = (
 
       <button
         className={"plus plus-" + vegetable.vegetableId}
-        onClick={() =>
-          addItemInCart(
-            vegetable.itemId,
-            parentThisObj,
-            vegetables,
-            selectedItem
-          )
-        }>
+        onClick={() => dispatch(addItemInCart(vegetable.itemId))}>
         +
       </button>
     </div>
   );
 };
 
-export const addProductContainer = (
-  vegetables,
-  parentThisObj,
-  selectedItem,
-  isHomePage
-) => {
+export const addProductContainer = (vegetables, dispatch) => {
   return vegetables.map((vegetable) => {
     return (
       <div
@@ -102,14 +70,8 @@ export const addProductContainer = (
           </div>
 
           {vegetable.quantity === 0
-            ? renderAddBtn(vegetable, parentThisObj, vegetables, selectedItem)
-            : renderPlusMinusBtnWithQuantities(
-                vegetable,
-                parentThisObj,
-                vegetables,
-                selectedItem,
-                isHomePage
-              )}
+            ? renderAddBtn(vegetable, dispatch)
+            : renderPlusMinusBtnWithQuantities(vegetable, dispatch)}
         </div>
       </div>
     );
