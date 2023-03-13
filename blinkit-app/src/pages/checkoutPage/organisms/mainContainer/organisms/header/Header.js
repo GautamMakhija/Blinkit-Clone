@@ -9,9 +9,11 @@ import { connect } from "react-redux";
 //action creator
 import { handleClearCartBtn } from "../../../../../../redux/actionCreator";
 
+import { calculateTotalSelectedItemCountAndAmount } from "../../../../../../helpers/app.general";
 class Header extends Component {
   render() {
-    const { selectedItem, handleClearCartBtn } = this.props;
+    const { vegetables, handleClearCartBtn } = this.props;
+    const selectedItem =calculateTotalSelectedItemCountAndAmount(vegetables);
     return (
       <div className="headerSection">
         <div className="headerText">Place Order</div>
@@ -32,7 +34,7 @@ class Header extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-    selectedItem: state.selectedItem,
+    vegetables: state.vegetables,
   };
 };
 const mapDispatchToProps = (dispatch) => {

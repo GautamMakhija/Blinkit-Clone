@@ -8,9 +8,15 @@ import { connect } from "react-redux";
 
 //constant
 import { SHIPPING_CHARGE } from "./constants/billingContainer.general";
+
+//helper
+import { calculateTotalSelectedItemCountAndAmount } from "../../../../../../helpers/app.general";
+
 export class BillingContainer extends Component {
   render() {
-    const { selectedItem } = this.props;
+    const { vegetables } = this.props;
+    const selectedItem = calculateTotalSelectedItemCountAndAmount(vegetables);
+
     return (
       <div className="billingContainer">
         <div className="selectedItemMrp">
@@ -57,7 +63,7 @@ export class BillingContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    selectedItem: state.selectedItem,
+    vegetables: state.vegetables,
   };
 };
 

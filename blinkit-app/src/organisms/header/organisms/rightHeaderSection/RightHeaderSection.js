@@ -14,11 +14,11 @@ import { connect } from "react-redux";
 
 class RightHeaderSection extends Component {
   render() {
-    const { selectedItem, redirectToCheckoutPage } = this.props;
+    const { vegetables, redirectToCheckoutPage } = this.props;
     return (
       <div className="loginCart">
         <div className="login">Login</div>
-        <div>{renderCartBtn(selectedItem, redirectToCheckoutPage)}</div>
+        <div>{renderCartBtn(vegetables, redirectToCheckoutPage)}</div>
       </div>
     );
   }
@@ -26,7 +26,7 @@ class RightHeaderSection extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    selectedItem: state.selectedItem,
+    vegetables:state.vegetables
   };
 };
 const mapDispatchToProps = (dispatch) => {

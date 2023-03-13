@@ -19,10 +19,13 @@ import { connect } from "react-redux";
 //action creator
 import { redirectToHomePage } from "../../../../redux/actionCreator";
 
+import { calculateTotalSelectedItemCountAndAmount } from "../../../../helpers/app.general";
+
 class MainContainer extends Component {
   render() {
-    const { selectedItemCount, redirectToHomePage } = this.props;
-    return selectedItemCount > 0 ? (
+    const { vegetables, redirectToHomePage } = this.props;
+    const selectedItem = calculateTotalSelectedItemCountAndAmount(vegetables);
+    return selectedItem.count > 0 ? (
       <section className="mainContainer">
         <Header />
         <ProductContainer />
@@ -43,7 +46,7 @@ class MainContainer extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-    selectedItemCount: state.selectedItem.count,
+    vegetables: state.vegetables,
   };
 };
 const mapDispatchToProps = (dispatch) => {

@@ -1,9 +1,9 @@
-import { VEGETABLES, SELECTED_ITEM } from "../constants/app.vegetableData";
+import { VEGETABLES } from "../constants/app.vegetableData";
+import { PAGES } from "../constants/app.general";
 
 export const INITIAL_STATE = {
   vegetables: VEGETABLES,
-  selectedItem: SELECTED_ITEM,
   filterValue: "Relevance",
   searchValue: "",
-  isHomePage: true,
+  page: PAGES.HomePage,
 };
