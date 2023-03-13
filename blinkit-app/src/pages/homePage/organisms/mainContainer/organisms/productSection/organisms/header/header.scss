@@ -1,0 +1,19 @@
+@import '../../../../../../../../styles/mixin';
+
+.sectionHeader{
+    @include flexProp(space-between,none,wrap);
+    .leftSectionHeader{
+        padding: 0.6rem 1rem;
+        font-weight: bolder;
+    }
+    .rightSectionHeader{
+        padding: 0.6rem 1rem;
+    }
+    #filterProduct{
+        margin-left: 0.2rem;
+        color: green;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}

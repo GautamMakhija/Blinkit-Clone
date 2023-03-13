@@ -1,0 +1,28 @@
+@import '../../../../styles/mixin';
+
+.speciality{
+    @include flexProp(space-around,none,wrap);
+    margin-top: 6rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    .specialityContainer{
+        width: 23rem;
+        border: 0.03rem solid rgb(238, 231, 231);
+        border-radius: 1rem;
+    }
+    .specialityImg{
+        width: 6rem;
+        margin: 0 9rem;
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+    }
+    .spacialityTitle{
+        text-align: center;
+        font-weight: bolder;
+    }
+    .spacialityDescription{
+        text-align: center;
+        padding: 1rem 1rem 2rem 1rem;
+        color: grey;
+    }
+}
