@@ -10,18 +10,11 @@ import "./header.scss";
 
 class Header extends Component {
   render() {
-    const { vegetables, selectedItem, filterValue, isHomePage } =
-      this.props.state;
-    const parentThisObj = this.props.parentThisObj;
     return (
       <section className="header">
-        <LeftHeaderSection parentThisObj={parentThisObj} isHomePage={isHomePage}/>
-        <SearchBar parentThisObj={parentThisObj} filterValue={filterValue} />
-        <RightHeaderSection
-          selectedItem={selectedItem}
-          isHomePage={isHomePage}
-          parentThisObj={parentThisObj}
-        />
+        <LeftHeaderSection />
+        <SearchBar />
+        <RightHeaderSection />
       </section>
     );
   }

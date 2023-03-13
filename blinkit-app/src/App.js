@@ -1,31 +1,24 @@
 import React from "react";
+
+//pages
 import HomePage from "./pages/homePage";
 import CheckoutPage from "./pages/checkoutPage";
 
-//Constant
-import { VEGETABLES, SELECTED_ITEM } from "./constants/app.vegetableData";
+//connect state
+import { connect } from "react-redux";
+
+import { PAGE_TO_REDIRECT } from "./constants/app.general";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      vegetables: VEGETABLES,
-      selectedItem: SELECTED_ITEM,
-      filterValue: "Relevance",
-      isHomePage: true,
-    };
-  }
+  s;
   render() {
-    return (
-      <div className="App">
-        {this.state.isHomePage ? (
-          <HomePage state={this.state} parentThisObj={this} />
-        ) : (
-          <CheckoutPage state={this.state} parentThisObj={this} />
-        )}
-      </div>
-    );
+    const { page } = this.props;
+    return <div className="App">{PAGE_TO_REDIRECT.get(page)}</div>;
   }
 }
-
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    page: state.page,
+  };
+};
+export default connect(mapStateToProps)(App);

@@ -1,7 +1,7 @@
 export const FILTER_OPTIONS = [
   {
     key: "displayedOption",
-    name: "Relevance",
+    name: "",
   },
   {
     key: "relevance",
