@@ -6,7 +6,7 @@ import {
   LOCATIONS,
   DELIVERY_TIME,
   LOGO_IMG_DETAILS,
-} from "../constants/homePage.general";
+} from "../constants/general";
 
 
 //helper functions for leftHeader

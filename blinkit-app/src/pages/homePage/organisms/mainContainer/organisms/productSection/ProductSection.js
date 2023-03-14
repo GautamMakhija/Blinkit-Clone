@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 //Components
-import Header from "../../../../organisms/header";
+import Header from "../../../../../../organisms/header";
 import ProductContainer from "./organisms/productContainer";
 
 //constants
