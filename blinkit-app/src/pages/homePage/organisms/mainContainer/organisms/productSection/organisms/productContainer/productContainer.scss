@@ -1,0 +1,99 @@
+@import '../../../../../../styles/mixin';
+
+.productContainer{
+    @include flexProp(none,none,wrap);
+    .productProperty{
+        border: 0.03rem solid rgb(238, 231, 231);
+        width: 15rem;
+    }
+    .inlinbe{
+        display: inline;
+    }
+    .none{
+        display: none;
+    }
+}
+.productOffer{
+    background-color: #538cee;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    margin-right: 9rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+#veg-nonveg{
+    width: 1rem;
+}
+.productImage{
+    width: 8rem;
+    margin-left: 3.5rem;
+    border: none;
+}
+.productSource{
+    text-align: end;
+    margin-right: 1rem;
+    margin-left: 5rem;
+    background-color:  rgb(235, 255, 239);
+    color: rgb(58, 183, 87);
+    .source{
+        width: 0.75rem;
+        height:0.75rem;
+        margin-right: 0.3rem;
+    }
+}
+.productContainerdetail{
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+.productWeight{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: grey;
+}
+
+.productContainerFooter{
+    @include flexProp(space-between,none,wrap);
+    margin: 0.5rem;
+    padding-right: 2rem;
+    .productNewPrice,.productOldPrice{
+        margin-left:0.5rem;
+    }
+}
+.productOldPrice{
+    text-decoration: line-through;
+    color:grey;
+}
+.addingBtnDiv,.plusMinusBtn{
+    @include flexProp(space-around,none,wrap);
+    width: 6rem;
+    height: 2rem;
+    background-color: rgb(235, 255, 239);
+    border-radius: 0.25rem;
+    border: 0.03rem solid green;
+    font-weight: bolder;
+}
+.plusMinusBtn{
+    background-color:rgba(0, 128, 0,0.9);
+}
+.addingBtn{
+    color: green;
+    font-weight: bolder;
+    background: none;
+    border: none;
+    &:hover{
+        cursor: pointer;
+    }
+}
+.minus , .count, .plus{
+    color:white;
+    font-weight: bolder;
+    background: none;
+    border:none;
+    &:hover{
+        cursor: pointer;
+    }
+}
+.count{
+    margin: auto;
+}
