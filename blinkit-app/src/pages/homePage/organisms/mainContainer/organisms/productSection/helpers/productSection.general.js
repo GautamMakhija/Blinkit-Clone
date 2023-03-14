@@ -1,4 +1,4 @@
-import SelectInput from "../../../../../molecules/selectInput";
+import SelectInput from "../../../../../../../molecules/selectInput";
 
 import { FILTER_OPTIONS } from "../constants/productSection.general";
 
