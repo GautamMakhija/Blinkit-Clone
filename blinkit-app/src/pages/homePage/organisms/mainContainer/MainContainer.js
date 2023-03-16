@@ -16,7 +16,7 @@ class MainContainer extends Component {
     const parentThisObj = this.props.parentThisObj;
     const { ...state } = this.props.state;
     return (
-      <section className="mainContainer">
+      <section className="homePageMainContainer">
         {this.sideBar}
         <ProductSection parentThisObj={parentThisObj} state={state} />
       </section>
