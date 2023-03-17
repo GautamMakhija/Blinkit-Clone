@@ -9,55 +9,24 @@ import EmptyCartContainer from "./organisms/emptyCartContainer";
 //CSS
 import "./mainContainer.scss";
 
-//constant
-import { EMPTY_CART_IMG_DETAIL } from "./constants/mainContainer.general";
-
-//connect state
+//connectState
 import { connect } from "react-redux";
 
-//action creator
-import { redirectToHomePage } from "../../../../redux/actionCreator";
-
-import { calculateTotalSelectedItemCountAndAmount } from "../../../../helpers/app.general";
+//helpers
+import { calculateTotalSelectedItemCountAndAmount } from "../../../../helpers/general";
 
 class MainContainer extends Component {
   render() {
-    const parentThisObj = this.props.parentThisObj;
-    const { ...state } = this.props.state;
-    const selectedItemCount = state.selectedItem?.count;
+    const { vegetables } = this.props;
+    console.log("vegetables is", vegetables);
     const selectedItem = calculateTotalSelectedItemCountAndAmount(vegetables);
-    if (selectedItem.count === 0)
-      return (
-        <EmptyCartContainer
-          isHomePage={state.isHomePage}
-          parentThisObj={parentThisObj}
-        />
-      );
-    return  (
+    if (selectedItem.count === 0) return <EmptyCartContainer />;
+    return (
       <section className="mainContainer">
-        <DeliveryInfo parentThisObj={parentThisObj} state={state} />
-        <ProductContainer parentThisObj={parentThisObj} state={state} />
-        <BillingContainer selectedItem={state.selectedItem} />
-      </section>
-    ) 
-    const { vegetables, redirectToHomePage } = this.props;
-    // const selectedItem = calculateTotalSelectedItemCountAndAmount(vegetables);
-    return selectedItem.count > 0 ? (
-      <section className="mainContainer">
-        <Header />
+        <DeliveryInfo />
         <ProductContainer />
         <BillingContainer />
       </section>
-    ) : (
-      <div className="mainContainer">
-        <img
-          src={EMPTY_CART_IMG_DETAIL.src}
-          alt={EMPTY_CART_IMG_DETAIL.altName}
-        />
-        <button className="redirectToHomepage" onClick={redirectToHomePage}>
-          Homepage
-        </button>
-      </div>
     );
   }
 }
@@ -66,10 +35,4 @@ const mapStateToProps = (state) => {
     vegetables: state.vegetables,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    redirectToHomePage: () => dispatch(redirectToHomePage()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
+export default connect(mapStateToProps)(MainContainer);

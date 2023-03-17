@@ -11,6 +11,16 @@ import Footer from "../../molecules/footer";
 import { DESCRIPTION_ABOUT_BLINKIT } from "../../constants/descriptionAboutBlinkit";
 import { HEADER_CONFIG } from "../../constants/general";
 
+//actionCreators
+import {
+  redirectToHomePage,
+  redirectToCheckoutPage,
+  handleSearchEvent,
+} from "../../redux/actionCreator";
+
+//connectState
+import { connect } from "react-redux";
+
 //CSS
 import "./homePage.scss";
 
@@ -18,7 +28,7 @@ class HomePage extends Component {
   render() {
     return (
       <div className="homePage">
-        <Header {...state} parentThisObj={parentThisObj} {...HEADER_CONFIG} />
+        <Header {...this.props} {...HEADER_CONFIG} />
         <SubHeader />
         <MainContainer />
         <Specialities />
@@ -30,5 +40,17 @@ class HomePage extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    vegetables: state.vegetables,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    redirectToHomePage: () => dispatch(redirectToHomePage()),
+    handleSearchEvent: (event) => dispatch(handleSearchEvent(event)),
+    redirectToCheckoutPage: () => dispatch(redirectToCheckoutPage()),
+  };
+};
 
-export default HomePage;
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

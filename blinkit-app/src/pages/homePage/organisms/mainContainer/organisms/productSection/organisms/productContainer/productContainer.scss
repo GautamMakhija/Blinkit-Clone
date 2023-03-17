@@ -6,7 +6,7 @@
         border: 0.03rem solid rgb(238, 231, 231);
         width: 15rem;
     }
-    .inlinbe{
+    .inline{
         display: inline;
     }
     .none{
@@ -64,7 +64,7 @@
     text-decoration: line-through;
     color:grey;
 }
-.addingBtnDiv,.plusMinusBtn{
+.addingBtnDiv,.plusMinusBtnWithQuantites{
     @include flexProp(space-around,none,wrap);
     width: 6rem;
     height: 2rem;

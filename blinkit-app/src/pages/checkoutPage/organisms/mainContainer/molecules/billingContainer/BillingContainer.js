@@ -7,22 +7,17 @@ import AmountBar from "./atoms/amountBar";
 import {
   SHIPPING_CHARGE_DETAILS,
   COUPON_TEXT,
-} from "./constants/billingContaine.general";
+} from "./constants/billingContainer.general";
 
 //helpers
 import { renderfinalBillContainer } from "./helpers/billingContainer.general";
+import { calculateTotalSelectedItemCountAndAmount } from "../../../../../../helpers/general";
 
 //CSS
 import "./billingContainer.scss";
 
-//connect state
+//connectState
 import { connect } from "react-redux";
-
-//constant
-import { SHIPPING_CHARGE } from "./constants/billingContainer.general";
-
-//helper
-import { calculateTotalSelectedItemCountAndAmount } from "../../../../../../helpers/app.general";
 
 export class BillingContainer extends Component {
   render() {

@@ -1,34 +1,31 @@
 import React, { Component } from "react";
 
-//helper function
+//helpers
 import { renderOptions } from "./helpers/selectInput.general";
 
-//action creator
+//actionCreators
 import { handleFilterEvent } from "../../redux/actionCreator";
 
+//connectState
 import { connect } from "react-redux";
 
 export class SelectInput extends Component {
   render() {
-    const { name, id, values, onChange, defaultValue ,isFirstItemHidden } = this.props;
-    const { dispatch ,filterValue} = this.props;
-    // return (
-    //   <select name={name} id={id} onChange={onChange}>
-    //     {renderOptions(values,defaultValue,isFirstItemHidden)}
+    const { name, id, values, dispatch, defaultValue, isFirstItemHidden } =
+      this.props;
     return (
       <select
         name={name}
         id={id}
         onChange={(event) => dispatch(handleFilterEvent(event))}>
-        {renderOptions(values,defaultValue,isFirstItemHidden)}
+        {renderOptions(values, defaultValue, isFirstItemHidden)}
       </select>
     );
   }
 }
 SelectInput.defaultProps = {
-  onChange: () => {},
   defaultValue: "select the option",
-  isFirstItemHidden:false,
+  isFirstItemHidden: false,
   dispatch: () => {},
 };
 

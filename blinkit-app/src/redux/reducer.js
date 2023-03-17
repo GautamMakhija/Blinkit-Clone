@@ -6,10 +6,10 @@ import { INITIAL_STATE } from "./initialState";
 //action types
 import * as actions from "./actionType";
 
-//helper function
+//helpers
 import {
-  filterItems,
-  filterSearchItems,
+  addDisplayTypeToFilterProducts,
+  addDisplayTypeToSearchProducts,
   cleartCart,
 } from "./helpers/redux.general";
 
@@ -50,14 +50,16 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case actions.HANDLE_SEARCH_EVENT:
       return produce(state, (draft) => {
         draft.vegetables.filter(
-          filterSearchItems(action.payload, draft.filterValue)
+          addDisplayTypeToSearchProducts(action.payload, draft.filterValue)
         );
         draft.searchValue = action.payload;
       });
 
     case actions.HANDLE_FILTER_EVENT:
       return produce(state, (draft) => {
-        draft.vegetables.filter(filterItems(action.payload, draft.searchValue));
+        draft.vegetables.filter(
+          addDisplayTypeToFilterProducts(action.payload, draft.searchValue)
+        );
         draft.filterValue = action.payload;
       });
 
@@ -65,5 +67,3 @@ export const reducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
-
-

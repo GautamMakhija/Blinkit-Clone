@@ -1,10 +1,11 @@
 //constants
-import { SOURCE_IMG } from "../constants/productContainer.general";
+import { SOURCE_IMG_DETAIL } from "../constants/productContainer.general";
 
-import {
-  addItemInCart,
-  renderPlusMinusBtnWithQuantities,
-} from "../../../../../../.././../../helpers/general";
+//actionCreators
+import { addItemInCart } from "../../../../../../../../../redux/actionCreator";
+
+//helpers
+import { renderPlusMinusBtnWithQuantities } from "../../../../../../../../../helpers/general";
 
 const renderAddBtn = (vegetable, dispatch) => {
   return (
@@ -18,13 +19,7 @@ const renderAddBtn = (vegetable, dispatch) => {
     </div>
   );
 };
-
-export const renderProductsContainer = (
-  vegetables,
-  parentThisObj,
-  selectedItem,
-  isHomePage
-) => {
+export const renderProductsContainer = (vegetables, dispatch) => {
   return vegetables.map((vegetable) => {
     return (
       <div
@@ -35,7 +30,7 @@ export const renderProductsContainer = (
         <img src={vegetable.imgSrc} alt="vegetable" className="productImage" />
 
         <div className="productSource">
-          {SOURCE_IMG}
+          {SOURCE_IMG_DETAIL}
           Sourced at {vegetable.source}
         </div>
 

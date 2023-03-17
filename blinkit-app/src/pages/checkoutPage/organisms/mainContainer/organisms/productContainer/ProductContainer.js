@@ -1,21 +1,20 @@
 import React, { Component } from "react";
 
+//helpers
+import { renderProductsContainer } from "./helpers/productContainer.general";
+
 //CSS
 import "./productContainer.scss";
 
-//helper function
-import { renderProductsContainer } from "./helpers/productContainer.general";
-
-//connect state
+//connectState
 import { connect } from "react-redux";
 
 class ProductContainer extends Component {
   render() {
-    const parentThisObj = this.props.parentThisObj;
-    const { vegetables, selectedItem } = this.props.state;
+    const { vegetables, dispatch } = this.props;
     return (
       <div className="productContainer">
-        {renderProductsContainer(vegetables, parentThisObj, selectedItem)}
+        {renderProductsContainer(vegetables, dispatch)}
       </div>
     );
   }
