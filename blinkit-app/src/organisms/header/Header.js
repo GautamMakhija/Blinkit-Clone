@@ -11,7 +11,6 @@ import "./header.scss";
 class Header extends Component {
   render() {
     const { className } = this.props;
-
     return (
       <section className={className}>
         <LeftHeaderSection {...this.props} />

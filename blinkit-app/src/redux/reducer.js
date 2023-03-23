@@ -13,8 +13,6 @@ import {
   cleartCart,
 } from "./helpers/redux.general";
 
-import { PAGES } from "../constants/app.general";
-
 export const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case actions.ADD_ITEM_IN_CART:
@@ -26,17 +24,6 @@ export const reducer = (state = INITIAL_STATE, action) => {
       return produce(state, (draft) => {
         draft.vegetables[action.payload].quantity -= 1;
       });
-
-    case actions.REDIRECT_TO_HOME_PAGE:
-      return {
-        ...state,
-        page: PAGES.HomePage,
-      };
-    case actions.REDIRECT_TO_CHECKOUT_PAGE:
-      return produce(state, (draft) => {
-        draft.page = PAGES.CheckoutPage;
-      });
-
     case actions.DELETE_ITEM_FROM_CART:
       return produce(state, (draft) => {
         draft.vegetables[action.payload].quantity = 0;
@@ -62,7 +49,22 @@ export const reducer = (state = INITIAL_STATE, action) => {
         );
         draft.filterValue = action.payload;
       });
-
+    case actions.FETCH_PRODUCTS_DATA_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case actions.FETCH_PRODUCTS_DATA_SUCCESSFULLY:
+      return {
+        ...state,
+        vegetables: action.payload,
+        isLoading: false,
+      };
+    case actions.FETCH_PRODUCTS_DATA_FAILED:
+      return {
+        ...state,
+        isLoading: false,
+      };
     default:
       return state;
   }

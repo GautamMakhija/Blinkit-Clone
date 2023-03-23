@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 
 //components
 import AmountBar from "./atoms/amountBar";
@@ -16,53 +17,41 @@ import { calculateTotalSelectedItemCountAndAmount } from "../../../../../../help
 //CSS
 import "./billingContainer.scss";
 
-//connectState
-import { connect } from "react-redux";
-
-export class BillingContainer extends Component {
-  render() {
-    const { vegetables } = this.props;
-    const selectedItem = calculateTotalSelectedItemCountAndAmount(vegetables);
-
-    return (
-      <div className="billingContainer">
-        <AmountBar
-          text="MRP"
-          className="selectedItemMrp"
-          amountId="selectedItemOldAmount"
-          amount={selectedItem.oldAmount}
-        />
-        <AmountBar
-          text="Product discount"
-          className="discountContainer"
-          amountId="totalDiscount"
-          amount={selectedItem.amount - selectedItem.oldAmount}
-        />
-        <AmountBar
-          text="Delivery charge"
-          className="deliveryCharge"
-          amountId="shippingDetail"
-          amount={SHIPPING_CHARGE_DETAILS}
-        />
-        <AmountBar
-          text="Grant total"
-          className="grantTotalOfSelectedItems"
-          amountId="grantTotal"
-          amount={selectedItem.amount}
-        />
-        <div className="coupons">{COUPON_TEXT}</div>
-        <div className="finalBillContainer">
-          {renderfinalBillContainer(selectedItem)}
-        </div>
+function BillingContainer() {
+  const vegetables = useSelector((state) => state.vegetables);
+  const selectedItem = calculateTotalSelectedItemCountAndAmount(vegetables);
+  return (
+    <div className="billingContainer">
+      <AmountBar
+        text="MRP"
+        className="selectedItemMrp"
+        amountId="selectedItemOldAmount"
+        amount={selectedItem.oldAmount}
+      />
+      <AmountBar
+        text="Product discount"
+        className="discountContainer"
+        amountId="totalDiscount"
+        amount={selectedItem.amount - selectedItem.oldAmount}
+      />
+      <AmountBar
+        text="Delivery charge"
+        className="deliveryCharge"
+        amountId="shippingDetail"
+        amount={SHIPPING_CHARGE_DETAILS}
+      />
+      <AmountBar
+        text="Grant total"
+        className="grantTotalOfSelectedItems"
+        amountId="grantTotal"
+        amount={selectedItem.amount}
+      />
+      <div className="coupons">{COUPON_TEXT}</div>
+      <div className="finalBillContainer">
+        {renderfinalBillContainer(selectedItem)}
       </div>
-    );
-  }
+    </div>
+  );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    vegetables: state.vegetables,
-  };
-};
-
-export default connect(mapStateToProps)(BillingContainer);
+export default BillingContainer;

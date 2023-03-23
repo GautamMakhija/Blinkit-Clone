@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 
 //components
 import DeliveryInfo from "./organisms/deliveryInfo";
@@ -9,30 +10,20 @@ import EmptyCartContainer from "./organisms/emptyCartContainer";
 //CSS
 import "./mainContainer.scss";
 
-//connectState
-import { connect } from "react-redux";
-
 //helpers
 import { calculateTotalSelectedItemCountAndAmount } from "../../../../helpers/general";
 
-class MainContainer extends Component {
-  render() {
-    const { vegetables } = this.props;
-    console.log("vegetables is", vegetables);
-    const selectedItem = calculateTotalSelectedItemCountAndAmount(vegetables);
-    if (selectedItem.count === 0) return <EmptyCartContainer />;
-    return (
-      <section className="mainContainer">
-        <DeliveryInfo />
-        <ProductContainer />
-        <BillingContainer />
-      </section>
-    );
-  }
+function MainContainer() {
+  const vegetables = useSelector((state) => state.vegetables);
+  const selectedItem = calculateTotalSelectedItemCountAndAmount(vegetables);
+  if (selectedItem.count === 0) return <EmptyCartContainer />;
+  return (
+    <section className="mainContainer">
+      <DeliveryInfo />
+      <ProductContainer />
+      <BillingContainer />
+    </section>
+  );
 }
-const mapStateToProps = (state) => {
-  return {
-    vegetables: state.vegetables,
-  };
-};
-export default connect(mapStateToProps)(MainContainer);
+
+export default MainContainer;

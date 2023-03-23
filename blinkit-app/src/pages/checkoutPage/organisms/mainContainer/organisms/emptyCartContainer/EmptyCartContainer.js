@@ -1,34 +1,24 @@
-import React, { Component } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 //constants
 import { EMPTY_CART_IMG_DETAIL } from "./constants/emptyCartContainer.general";
 
-//helpers
-import { redirectToHomePage } from "../../../../../../redux/actionCreator";
-
-//connectState
-import { connect } from "react-redux";
-
-export class EmptyCartContainer extends Component {
-  render() {
-    const { redirectToHomePage } = this.props;
-    return (
-      <div className="mainContainer">
-        <img
-          src={EMPTY_CART_IMG_DETAIL.src}
-          alt={EMPTY_CART_IMG_DETAIL.altName}
-        />
-        <button className="redirectToHomepage" onClick={redirectToHomePage}>
-          Homepage
-        </button>
-      </div>
-    );
-  }
+function EmptyCartContainer() {
+  const navigate = useNavigate();
+  return (
+    <div className="mainContainer">
+      <img
+        src={EMPTY_CART_IMG_DETAIL.src}
+        alt={EMPTY_CART_IMG_DETAIL.altName}
+      />
+      <button
+        className="redirectToHomepage"
+        onClick={() => navigate("/HomePage")}>
+        Homepage
+      </button>
+    </div>
+  );
 }
-const mapDispatchToProps = (dispatch) => {
-  return {
-    redirectToHomePage: () => dispatch(redirectToHomePage()),
-  };
-};
 
-export default connect(null, mapDispatchToProps)(EmptyCartContainer);
+export default EmptyCartContainer;

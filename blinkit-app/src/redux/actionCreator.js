@@ -27,18 +27,6 @@ export const handleClearCartBtn = () => {
   };
 };
 
-export const redirectToHomePage = () => {
-  return {
-    type: actions.REDIRECT_TO_HOME_PAGE,
-  };
-};
-
-export const redirectToCheckoutPage = () => {
-  return {
-    type: actions.REDIRECT_TO_CHECKOUT_PAGE,
-  };
-};
-
 export const handleSearchEvent = (event) => {
   return {
     type: actions.HANDLE_SEARCH_EVENT,
@@ -50,5 +38,25 @@ export const handleFilterEvent = (event) => {
   return {
     type: actions.HANDLE_FILTER_EVENT,
     payload: event.target.value,
+  };
+};
+
+export const fetchProductsDataRequest = () => {
+  return {
+    type: actions.FETCH_PRODUCTS_DATA_REQUEST,
+  };
+};
+
+export const fetchProducsDataSuccessfully = (productsArray) => {
+  return {
+    type: actions.FETCH_PRODUCTS_DATA_SUCCESSFULLY,
+    payload: productsArray,
+  };
+};
+
+export const fetchProductsDataFailed = (error) => {
+  return {
+    type: actions.FETCH_PRODUCTS_DATA_FAILED,
+    payload: error,
   };
 };

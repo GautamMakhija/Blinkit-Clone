@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 //helpers
 import { renderOptions } from "./helpers/selectInput.general";
@@ -6,22 +6,23 @@ import { renderOptions } from "./helpers/selectInput.general";
 //actionCreators
 import { handleFilterEvent } from "../../redux/actionCreator";
 
-//connectState
-import { connect } from "react-redux";
-
-export class SelectInput extends Component {
-  render() {
-    const { name, id, values, dispatch, defaultValue, isFirstItemHidden } =
-      this.props;
-    return (
-      <select
-        name={name}
-        id={id}
-        onChange={(event) => dispatch(handleFilterEvent(event))}>
-        {renderOptions(values, defaultValue, isFirstItemHidden)}
-      </select>
-    );
-  }
+function SelectInput({
+  name,
+  id,
+  values,
+  dispatch,
+  defaultValue,
+  isFirstItemHidden,
+}) {
+  return (
+    <select
+      name={name}
+      id={id}
+      defaultValue={defaultValue}
+      onChange={(event) => dispatch(handleFilterEvent(event))}>
+      {renderOptions(values, defaultValue, isFirstItemHidden)}
+    </select>
+  );
 }
 SelectInput.defaultProps = {
   defaultValue: "select the option",
@@ -29,10 +30,4 @@ SelectInput.defaultProps = {
   dispatch: () => {},
 };
 
-const mapStateToProps = (state) => {
-  return {
-    filterValue: state.filterValue,
-  };
-};
-
-export default connect(mapStateToProps)(SelectInput);
+export default SelectInput;

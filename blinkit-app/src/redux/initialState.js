@@ -1,9 +1,6 @@
-import { VEGETABLES } from "../constants/app.vegetableData";
-import { PAGES } from "../constants/app.general";
-
 export const INITIAL_STATE = {
-  vegetables: VEGETABLES,
+  vegetables: [],
+  isLoading: true,
   filterValue: "Relevance",
   searchValue: "",
-  page: PAGES.HomePage,
 };

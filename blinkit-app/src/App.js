@@ -1,20 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Routes, Route } from "react-router-dom";
 
-//connectState
-import { connect } from "react-redux";
+//components
+import HomePage from "./pages/homePage";
+import CheckoutPage from "./pages/checkoutPage";
 
-//constants
-import { PAGE_TO_REDIRECT } from "./constants/app.general";
+//helpers
+import { fetchVegetablesData } from "./redux/helpers/redux.general";
 
-class App extends React.Component {
-  render() {
-    const { page } = this.props;
-    return <div className="App">{PAGE_TO_REDIRECT.get(page)}</div>;
-  }
+function App() {
+  const isLoading = useSelector((state) => state.isLoading);
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(fetchVegetablesData), []);
+  if (isLoading) return <div>Loading...</div>;
+
+  return (
+    <div className="App">
+      <Routes>
+        <Route index element={<HomePage />} />
+        <Route path="HomePage" element={<HomePage />} />
+        <Route path="CheckoutPage" element={<CheckoutPage />} />
+        <Route path="*" element={<div>Page not found</div>} />
+      </Routes>
+    </div>
+  );
 }
-const mapStateToProps = (state) => {
-  return {
-    page: state.page,
-  };
-};
-export default connect(mapStateToProps)(App);
+
+export default App;
