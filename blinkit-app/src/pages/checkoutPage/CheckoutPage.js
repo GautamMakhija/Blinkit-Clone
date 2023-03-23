@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 //components
 import Header from "../../organisms/header";
@@ -11,46 +13,31 @@ import Footer from "../../molecules/footer";
 import { DESCRIPTION_ABOUT_BLINKIT } from "../../constants/descriptionAboutBlinkit";
 import { HEADER_CONFIG } from "../../constants/general";
 
-//actionCreators
-import {
-  redirectToHomePage,
-  redirectToCheckoutPage,
-  handleSearchEvent,
-} from "../../redux/actionCreator";
-
-//connectState
-import { connect } from "react-redux";
-
 //CSS
 import "./checkoutPage.scss";
 
-class CheckoutPage extends Component {
-  render() {
-    return (
-      <div className="checkoutPage">
-        <Header {...this.props} {...HEADER_CONFIG} />
-        <SubHeader />
-        <MainContainer />
-        <Specialities />
-        <section className="aboutContainer">
-          {DESCRIPTION_ABOUT_BLINKIT}
-        </section>
-        <Footer />
-      </div>
-    );
-  }
+function CheckoutPage() {
+  const vegetables = useSelector((state) => state.vegetables);
+  const navigate = useNavigate();
+  const redirectToHomePage = () => {
+    navigate("/HomePage");
+  };
+  const redirectToCheckoutPage = () => {
+    navigate("/CheckoutPage");
+  };
+  return (
+    <div className="checkoutPage">
+      <Header
+        {...{ vegetables, redirectToHomePage, redirectToCheckoutPage }}
+        {...HEADER_CONFIG}
+      />
+      <SubHeader />
+      <MainContainer />
+      <Specialities />
+      <section className="aboutContainer">{DESCRIPTION_ABOUT_BLINKIT}</section>
+      <Footer />
+    </div>
+  );
 }
-const mapStateToProps = (state) => {
-  return {
-    vegetables: state.vegetables,
-  };
-};
-const mapDispatchToProps = (dispatch) => {
-  return {
-    redirectToHomePage: () => dispatch(redirectToHomePage()),
-    handleSearchEvent: (event) => dispatch(handleSearchEvent(event)),
-    redirectToCheckoutPage: () => dispatch(redirectToCheckoutPage()),
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(CheckoutPage);
+export default CheckoutPage;

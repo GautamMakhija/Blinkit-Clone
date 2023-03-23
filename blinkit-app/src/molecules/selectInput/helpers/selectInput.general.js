@@ -4,7 +4,7 @@ export const renderOption =
     if (isFirstItemHidden === true && index === 0) {
       return (
         <option key={key} value={defaultValue} hidden>
-          {defaultValue}
+          {name}
         </option>
       );
     }

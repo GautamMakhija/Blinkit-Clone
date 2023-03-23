@@ -14,6 +14,9 @@ import {
   renderCartBtn,
 } from "./general";
 
+//actionCreators
+import { handleSearchEvent } from "../redux/actionCreator";
+
 //helper functions for leftHeader
 
 export const renderLeftHeader = ({ redirectToHomePage }) => {
@@ -42,13 +45,13 @@ export const renderLeftHeader = ({ redirectToHomePage }) => {
 
 //helper functions for middleHeader
 
-export const renderMiddleHeader = ({ handleSearchEvent }) => {
+export const renderMiddleHeader = ({ dispatch }) => {
   return (
     <input
       type="text"
       placeholder="Search.."
       className="searchInput"
-      onKeyUp={handleSearchEvent}
+      onKeyUp={(event) => dispatch(handleSearchEvent(event))}
     />
   );
 };

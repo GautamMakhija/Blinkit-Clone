@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 //CSS
 import "./deliveryInfo.scss";
@@ -12,42 +13,28 @@ import { calculateTotalSelectedItemCountAndAmount } from "../../../../../../help
 //actionCreators
 import { handleClearCartBtn } from "../../../../../../redux/actionCreator";
 
-import { connect } from "react-redux";
-
-class DeliveryInfo extends Component {
-  render() {
-    const { vegetables, handleClearCartBtn } = this.props;
-    const selectedItem = calculateTotalSelectedItemCountAndAmount(vegetables);
-    return (
-      <div className="deliveryInfoContainer">
-        <div className="headerText">Place Order</div>
-        <div className="subHeaderSection">
-          <div>
-            <p className="deliveryTiming">
-              Delivery in {DELIVERY_TIME} minutes{" "}
-            </p>
-            <p id="selectedItemCount"> {selectedItem.count} items</p>
-          </div>
-          <div>
-            <button className="clearCartBtn" onClick={handleClearCartBtn}>
-              Clear Cart
-            </button>
-          </div>
+function DeliveryInfo() {
+  const vegetables = useSelector((state) => state.vegetables);
+  const dispatch = useDispatch();
+  const selectedItem = calculateTotalSelectedItemCountAndAmount(vegetables);
+  return (
+    <div className="deliveryInfoContainer">
+      <div className="headerText">Place Order</div>
+      <div className="subHeaderSection">
+        <div>
+          <p className="deliveryTiming">Delivery in {DELIVERY_TIME} minutes </p>
+          <p id="selectedItemCount"> {selectedItem.count} items</p>
+        </div>
+        <div>
+          <button
+            className="clearCartBtn"
+            onClick={() => dispatch(handleClearCartBtn())}>
+            Clear Cart
+          </button>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    vegetables: state.vegetables,
-  };
-};
-const mapDispatchToProps = (dispatch) => {
-  return {
-    handleClearCartBtn: () => dispatch(handleClearCartBtn()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(DeliveryInfo);
+export default DeliveryInfo;

@@ -4,6 +4,7 @@ import {
   renderRightHeader,
 } from "../helpers/productSection.general";
 
+
 export const HEADER_TEXT = "Buy Fresh Vegetables Online";
 
 export const FILTER_OPTIONS = [

@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 //helpers
 import { renderProductsContainer } from "./helpers/productContainer.general";
@@ -6,29 +7,14 @@ import { renderProductsContainer } from "./helpers/productContainer.general";
 //CSS
 import "./productContainer.scss";
 
-//connetState
-import { connect } from "react-redux";
-
-class ProductContainer extends Component {
-  render() {
-    const { vegetables, dispatch } = this.props;
-    return (
-      <div className="productsContainer">
-        {renderProductsContainer(vegetables, dispatch)}
-      </div>
-    );
-  }
+function ProductContainer() {
+  const vegetables = useSelector((state) => state.vegetables);
+  const dispatch = useDispatch();
+  return (
+    <div className="productsContainer">
+      {renderProductsContainer(vegetables, dispatch)}
+    </div>
+  );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    vegetables: state.vegetables,
-  };
-};
-const mapDispatchToProps = (dispatch) => {
-  return {
-    dispatch: dispatch,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductContainer);
+export default ProductContainer;

@@ -12,7 +12,7 @@ export const renderLeftHeader = ({ headerText }) => {
 
 //helper function for rightHeader
 
-export const renderRightHeader = ({ dispatch }) => {
+export const renderRightHeader = ({ dispatch ,filterValue}) => {
   return (
     <div className="rightSectionHeader">
       Sort By
@@ -21,7 +21,7 @@ export const renderRightHeader = ({ dispatch }) => {
         id="filterProduct"
         values={FILTER_OPTIONS}
         dispatch={dispatch}
-        defaultValue="Relevance"
+        defaultValue={filterValue}
         isFirstItemHidden={false}
       />
     </div>
