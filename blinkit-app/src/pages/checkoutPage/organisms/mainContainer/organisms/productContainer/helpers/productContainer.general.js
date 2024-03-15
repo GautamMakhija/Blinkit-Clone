@@ -1,38 +1,17 @@
 import { DeleteOutlined } from "@ant-design/icons";
 
+//actionCreators
+import { deleteItemFromCart } from "../../../../../../../redux/actionCreator";
+
+//helpers
 import { renderPlusMinusBtnWithQuantities } from "../../../../../../../helpers/general";
 
-export const deleteItemFromCart = (
-  index,
-  thisObj,
-  vegetables,
-  selectedItem
-) => {
-  selectedItem.count -= vegetables[index].quantity;
-  selectedItem.amount -=
-    vegetables[index].currentPrice * vegetables[index].quantity;
-  selectedItem.oldAmount -=
-    vegetables[index].oldPrice * vegetables[index].quantity;
-  vegetables[index].quantity = 0;
-  thisObj.setState({
-    vegetables: vegetables,
-    selectedItem: selectedItem,
-  });
-};
-
-const renderCrossBtn = (vegetable, parentThisObj, vegetables, selectedItem) => {
+const renderCrossBtn = (vegetable, dispatch) => {
   return (
     <button
       className="crossBtn"
       id={"cross-" + vegetable.vegetableId}
-      onClick={() => {
-        deleteItemFromCart(
-          vegetable.itemId,
-          parentThisObj,
-          vegetables,
-          selectedItem
-        );
-      }}>
+      onClick={() => dispatch(deleteItemFromCart(vegetable.itemId))}>
       <DeleteOutlined />
     </button>
   );
@@ -65,11 +44,7 @@ const rendervegetableInfo = (vegetable) => {
   );
 };
 
-export const renderProductsContainer = (
-  vegetables,
-  parentThisObj,
-  selectedItem
-) => {
+export const renderProductsContainer = (vegetables, dispatch) => {
   return vegetables.map((vegetable) => {
     if (vegetable.quantity > 0) {
       return (
@@ -80,18 +55,8 @@ export const renderProductsContainer = (
           <div className="vegetableInfoContainer">
             {rendervegetableInfo(vegetable)}
             <div className="btnContainer">
-              {renderPlusMinusBtnWithQuantities(
-                vegetable,
-                parentThisObj,
-                vegetables,
-                selectedItem
-              )}
-              {renderCrossBtn(
-                vegetable,
-                parentThisObj,
-                vegetables,
-                selectedItem
-              )}
+              {renderPlusMinusBtnWithQuantities(vegetable, dispatch)}
+              {renderCrossBtn(vegetable, dispatch)}
             </div>
           </div>
         </div>

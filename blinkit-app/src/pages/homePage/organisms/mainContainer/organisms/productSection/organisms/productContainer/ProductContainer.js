@@ -6,17 +6,29 @@ import { renderProductsContainer } from "./helpers/productContainer.general";
 //CSS
 import "./productContainer.scss";
 
+//connetState
+import { connect } from "react-redux";
+
 class ProductContainer extends Component {
   render() {
-    const parentThisObj = this.props.parentThisObj;
-    const { vegetables, selectedItem } = this.props.state;
-    const ProductsContainer = renderProductsContainer(
-      vegetables,
-      parentThisObj,
-      selectedItem
+    const { vegetables, dispatch } = this.props;
+    return (
+      <div className="productsContainer">
+        {renderProductsContainer(vegetables, dispatch)}
+      </div>
     );
-    return <div className="productsContainer">{ProductsContainer}</div>;
   }
 }
 
-export default ProductContainer;
+const mapStateToProps = (state) => {
+  return {
+    vegetables: state.vegetables,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatch: dispatch,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductContainer);

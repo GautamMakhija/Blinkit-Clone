@@ -4,25 +4,31 @@ import React, { Component } from "react";
 import { EMPTY_CART_IMG_DETAIL } from "./constants/emptyCartContainer.general";
 
 //helpers
-import { redirectToHomePage } from "../../../../../../helpers/general";
+import { redirectToHomePage } from "../../../../../../redux/actionCreator";
+
+//connectState
+import { connect } from "react-redux";
 
 export class EmptyCartContainer extends Component {
   render() {
-    const { isHomePage, parentThisObj } = this.props;
+    const { redirectToHomePage } = this.props;
     return (
       <div className="mainContainer">
         <img
           src={EMPTY_CART_IMG_DETAIL.src}
           alt={EMPTY_CART_IMG_DETAIL.altName}
         />
-        <button
-          className="redirectToHomepage"
-          onClick={() => redirectToHomePage(isHomePage, parentThisObj)}>
+        <button className="redirectToHomepage" onClick={redirectToHomePage}>
           Homepage
         </button>
       </div>
     );
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    redirectToHomePage: () => dispatch(redirectToHomePage()),
+  };
+};
 
-export default EmptyCartContainer;
+export default connect(null, mapDispatchToProps)(EmptyCartContainer);

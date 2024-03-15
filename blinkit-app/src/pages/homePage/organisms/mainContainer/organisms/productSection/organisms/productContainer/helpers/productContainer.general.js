@@ -1,37 +1,25 @@
 //constants
-import { SOURCE_IMG } from "../constants/productContainer.general";
+import { SOURCE_IMG_DETAIL } from "../constants/productContainer.general";
 
-import {
-  addItemInCart,
-  renderPlusMinusBtnWithQuantities,
-} from "../../../../../../.././../../helpers/general";
+//actionCreators
+import { addItemInCart } from "../../../../../../../../../redux/actionCreator";
 
-const renderAddBtn = (vegetable, parentThisObj, vegetables, selectedItem) => {
+//helpers
+import { renderPlusMinusBtnWithQuantities } from "../../../../../../../../../helpers/general";
+
+const renderAddBtn = (vegetable, dispatch) => {
   return (
     <div className="addingBtnDiv">
       <button
         className={"addingBtn addingBtn-" + vegetable.vegetableId}
         index={vegetable.vegetableId}
-        onClick={() =>
-          addItemInCart(
-            vegetable.itemId,
-            parentThisObj,
-            vegetables,
-            selectedItem
-          )
-        }>
+        onClick={() => dispatch(addItemInCart(vegetable.itemId))}>
         ADD
       </button>
     </div>
   );
 };
-
-export const renderProductsContainer = (
-  vegetables,
-  parentThisObj,
-  selectedItem,
-  isHomePage
-) => {
+export const renderProductsContainer = (vegetables, dispatch) => {
   return vegetables.map((vegetable) => {
     return (
       <div
@@ -42,7 +30,7 @@ export const renderProductsContainer = (
         <img src={vegetable.imgSrc} alt="vegetable" className="productImage" />
 
         <div className="productSource">
-          {SOURCE_IMG}
+          {SOURCE_IMG_DETAIL}
           Sourced at {vegetable.source}
         </div>
 
@@ -58,14 +46,8 @@ export const renderProductsContainer = (
           </div>
 
           {vegetable.quantity === 0
-            ? renderAddBtn(vegetable, parentThisObj, vegetables, selectedItem)
-            : renderPlusMinusBtnWithQuantities(
-                vegetable,
-                parentThisObj,
-                vegetables,
-                selectedItem,
-                isHomePage
-              )}
+            ? renderAddBtn(vegetable, dispatch)
+            : renderPlusMinusBtnWithQuantities(vegetable, dispatch)}
         </div>
       </div>
     );

@@ -167,9 +167,3 @@ export const VEGETABLES = [
     visibility: "inline",
   },
 ];
-
-export const SELECTED_ITEM = {
-  count: 0,
-  amount: 0,
-  oldAmount: 0,
-};

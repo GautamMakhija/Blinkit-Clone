@@ -11,18 +11,26 @@ import Footer from "../../molecules/footer";
 import { DESCRIPTION_ABOUT_BLINKIT } from "../../constants/descriptionAboutBlinkit";
 import { HEADER_CONFIG } from "../../constants/general";
 
+//actionCreators
+import {
+  redirectToHomePage,
+  redirectToCheckoutPage,
+  handleSearchEvent,
+} from "../../redux/actionCreator";
+
+//connectState
+import { connect } from "react-redux";
+
 //CSS
 import "./checkoutPage.scss";
 
 class CheckoutPage extends Component {
   render() {
-    const { ...state } = this.props.state;
-    const parentThisObj = this.props.parentThisObj;
     return (
       <div className="checkoutPage">
-        <Header {...state} parentThisObj={parentThisObj} {...HEADER_CONFIG} />
+        <Header {...this.props} {...HEADER_CONFIG} />
         <SubHeader />
-        <MainContainer parentThisObj={parentThisObj} state={state} />
+        <MainContainer />
         <Specialities />
         <section className="aboutContainer">
           {DESCRIPTION_ABOUT_BLINKIT}
@@ -32,5 +40,17 @@ class CheckoutPage extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    vegetables: state.vegetables,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    redirectToHomePage: () => dispatch(redirectToHomePage()),
+    handleSearchEvent: (event) => dispatch(handleSearchEvent(event)),
+    redirectToCheckoutPage: () => dispatch(redirectToCheckoutPage()),
+  };
+};
 
-export default CheckoutPage;
+export default connect(mapStateToProps, mapDispatchToProps)(CheckoutPage);

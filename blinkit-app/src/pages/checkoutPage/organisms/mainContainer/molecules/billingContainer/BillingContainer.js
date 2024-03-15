@@ -7,17 +7,23 @@ import AmountBar from "./atoms/amountBar";
 import {
   SHIPPING_CHARGE_DETAILS,
   COUPON_TEXT,
-} from "./constants/billingContaine.general";
+} from "./constants/billingContainer.general";
 
 //helpers
 import { renderfinalBillContainer } from "./helpers/billingContainer.general";
+import { calculateTotalSelectedItemCountAndAmount } from "../../../../../../helpers/general";
 
 //CSS
 import "./billingContainer.scss";
 
+//connectState
+import { connect } from "react-redux";
+
 export class BillingContainer extends Component {
   render() {
-    const selectedItem = this.props.selectedItem;
+    const { vegetables } = this.props;
+    const selectedItem = calculateTotalSelectedItemCountAndAmount(vegetables);
+
     return (
       <div className="billingContainer">
         <AmountBar
@@ -53,4 +59,10 @@ export class BillingContainer extends Component {
   }
 }
 
-export default BillingContainer;
+const mapStateToProps = (state) => {
+  return {
+    vegetables: state.vegetables,
+  };
+};
+
+export default connect(mapStateToProps)(BillingContainer);
