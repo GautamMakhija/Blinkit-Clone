@@ -1,0 +1,352 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Okra", Helvetica;
+}
+
+.container1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 2rem;
+}
+
+.logo-location {
+  width: 23rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.logo {
+  padding-right: 0.4rem;
+  border-right: 0.03rem solid rgb(238, 231, 231);
+}
+
+.blinkit-logo:hover {
+  cursor: pointer;
+}
+
+.location div {
+  font-weight: bolder;
+  font-size: larger;
+}
+.location select {
+  border: none;
+}
+
+button {
+  background: none;
+  border: none;
+}
+button:hover {
+  cursor: pointer;
+}
+
+select:hover {
+  cursor: pointer;
+  border: none;
+}
+
+.search {
+  display: flex;
+  justify-content: space-around;
+  align-items: none;
+  flex-wrap: nowrap;
+  flex-grow: 2;
+  height: 1.9rem;
+}
+
+.search-bar {
+  width: 45rem;
+  height: 1.9rem;
+  border: 0.03rem solid rgb(238, 231, 231);
+  box-shadow: 0.12rem 0.12rem rgb(238, 231, 231);
+}
+
+.login-cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 8rem;
+  padding-right: 2rem;
+}
+
+.login {
+  color: rgb(108, 106, 106);
+  text-align: center;
+}
+
+.cart {
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  flex-wrap: nowrap;
+  background-color: rgb(52, 197, 52);
+  margin-left: 1.5rem;
+  padding-left: 0.5rem;
+  width: 6rem;
+  height: 3rem;
+  text-align: center;
+  border: none;
+  border-radius: 0.25rem;
+}
+.cart div:first-of-type {
+  height: 2rem;
+  font-size: large;
+  padding-right: 0.4rem;
+}
+
+.main-page {
+  width: 36rem;
+  margin: 0 26rem;
+}
+.main-page .place-order {
+  font-size: larger;
+  color: rgb(110, 107, 107);
+  font-weight: bolder;
+  padding-bottom: 1.7rem;
+  padding-top: 0.4rem;
+}
+.main-page .time p:first-of-type {
+  font-weight: bolder;
+  padding-bottom: 0.5rem;
+}
+.main-page .time p:last-of-type {
+  color: grey;
+  font-size: medium;
+}
+
+.items {
+  display: flex;
+  justify-content: none;
+  align-items: none;
+  flex-wrap: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 8rem;
+}
+
+.item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: none;
+  flex-wrap: nowrap;
+  width: 32rem;
+}
+
+.main-item {
+  width: 10rem;
+}
+
+.main-image1 {
+  padding-top: 2rem;
+  width: 4rem;
+}
+.main-image1 img {
+  width: 4rem;
+  height: 4rem;
+  padding-left: 0;
+  border: 0.125rem solid rgb(238, 231, 231);
+  border-radius: 1rem;
+}
+
+.main-name {
+  width: 8rem;
+}
+
+.main-weight {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  color: grey;
+  margin-bottom: 1rem;
+}
+
+.details {
+  margin-left: 1rem;
+  padding-top: 2rem;
+  padding-left: 2rem;
+}
+
+.main-price .old-price {
+  text-decoration: line-through;
+  color: grey;
+}
+.main-price .new-price {
+  font-weight: bolder;
+  margin-right: 0.3rem;
+}
+
+.add-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: none;
+  flex-wrap: nowrap;
+  width: 6rem;
+  height: 2rem;
+  background-color: green;
+  border-radius: 0.25rem;
+  border: 0.03rem solid green;
+  font-weight: bolder;
+  margin-top: 5rem;
+}
+
+.minus, .plus {
+  color: white;
+}
+.minus:hover, .plus:hover {
+  cursor: pointer;
+}
+
+.count {
+  color: white;
+}
+
+.mrp {
+  margin-top: 3rem;
+}
+
+.mrp, .discount, .delivery-charge, .grant-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: none;
+  flex-wrap: nowrap;
+  margin-bottom: 0.5rem;
+}
+
+.mrp, .discount, .delivery-charge {
+  color: grey;
+}
+
+.discount p:last-of-type {
+  color: green;
+}
+
+.delivery-charge .free-charge {
+  text-decoration: line-through;
+}
+.delivery-charge .free {
+  color: green;
+}
+
+.grant-total {
+  font-weight: bolder;
+}
+
+.coupons {
+  margin-top: 2.5rem;
+  color: grey;
+}
+
+.final-value {
+  display: flex;
+  justify-content: space-between;
+  align-items: none;
+  flex-wrap: nowrap;
+  color: white;
+  background-color: green;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0.5rem;
+}
+.final-value .cross-price {
+  text-decoration: line-through;
+}
+.final-value .proceed {
+  text-align: center;
+}
+.final-value .proceed:hover {
+  cursor: pointer;
+}
+
+.bg-final {
+  border: none;
+  background-color: white;
+  margin-top: 2rem;
+  border: 0.18rem solid rgba(223, 217, 217, 0.5);
+  border-radius: 0.25rem;
+}
+
+.speciality {
+  display: flex;
+  justify-content: space-around;
+  align-items: none;
+  flex-wrap: wrap;
+  margin-top: 6rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+.speciality > div {
+  width: 23rem;
+  border: 0.03rem solid rgb(238, 231, 231);
+  border-radius: 1rem;
+}
+.speciality img {
+  width: 6rem;
+  margin: 0 9rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+.speciality p {
+  text-align: center;
+}
+.speciality p:first-of-type {
+  font-weight: bolder;
+}
+.speciality p:last-of-type {
+  padding: 1rem 1rem 2rem 1rem;
+  color: grey;
+}
+
+.fotter {
+  display: flex;
+  justify-content: none;
+  align-items: none;
+  flex-wrap: nowrap;
+  margin-top: 4rem;
+  background-color: rgba(246, 240, 240, 0.36);
+}
+.fotter div {
+  margin-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.fotter div:nth-of-type(2) {
+  display: flex;
+  justify-content: none;
+  align-items: none;
+  flex-wrap: none;
+}
+.fotter div:nth-of-type(2) p {
+  font-weight: bolder;
+  padding-right: 1rem;
+  text-align: center;
+  padding-top: 0.5rem;
+}
+.fotter div:first-of-type {
+  padding-left: 10rem;
+  width: 30rem;
+}
+.fotter div:last-of-type {
+  width: 12rem;
+  margin-left: 9rem;
+}
+.fotter p {
+  color: grey;
+}
+.fotter img {
+  width: 8rem;
+  height: 2.3rem;
+  text-align: center;
+}
+.fotter img:first-of-type {
+  margin-right: 1rem;
+}
+.fotter svg:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=Checkout.css.map */

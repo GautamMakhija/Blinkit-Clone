@@ -1,0 +1,377 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Okra", Helvetica;
+}
+
+.container1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1.5rem;
+}
+
+.blinkit-logo:hover {
+  cursor: pointer;
+}
+
+.logo-location {
+  width: 22rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  padding-right: 0.5rem;
+  border-right: 0.1rem solid rgb(238, 231, 231);
+}
+
+.location div {
+  font-weight: bolder;
+  font-size: larger;
+}
+.location select {
+  border: none;
+}
+.location select:hover {
+  cursor: pointer;
+}
+
+.search {
+  display: flex;
+  justify-content: space-around;
+  align-items: none;
+  flex-wrap: wrap;
+  flex-grow: 4;
+  flex-shrink: 4;
+  width: 40rem;
+  height: 1.75rem;
+}
+
+button {
+  background: none;
+  border: none;
+}
+button:hover {
+  cursor: pointer;
+}
+
+select:hover {
+  cursor: pointer;
+  border: none;
+}
+
+.search-bar {
+  width: 50rem;
+  height: 2rem;
+  margin-top: -0.3rem;
+  border: 0.03rem solid rgb(238, 231, 231);
+  box-shadow: 0.12rem 0.12rem rgb(238, 231, 231);
+}
+
+.login-cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: none;
+  flex-wrap: wrap;
+  width: 10rem;
+}
+.login-cart div:last-of-type() {
+  display: flex;
+  justify-content: none;
+  align-items: none;
+  flex-wrap: wrap;
+}
+
+.login {
+  text-align: center;
+  margin-top: 0.4rem;
+  margin-left: 1.2rem;
+}
+.login:hover {
+  cursor: pointer;
+}
+
+.cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: rgb(52, 197, 52);
+  margin-left: 0.5rem;
+  margin-right: 0.1rem;
+  padding-right: 0.4rem;
+  padding-left: 0.3rem;
+  width: 5rem;
+  height: 2rem;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+.foodbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: none;
+  flex-wrap: wrap;
+  border-top: 0.03rem solid rgb(238, 231, 231);
+  border-bottom: 0.06rem solid rgb(238, 231, 231);
+  padding: 0.5rem;
+  box-shadow: 0.12rem 0.12rem rgb(238, 231, 231);
+}
+.foodbar ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: none;
+  flex-wrap: wrap;
+}
+.foodbar li {
+  list-style-type: none;
+  color: grey;
+  margin-right: 1rem;
+}
+.foodbar li:hover {
+  background-color: rgba(228, 220, 220, 0.5);
+  cursor: pointer;
+}
+.foodbar li:first-of-type {
+  margin-left: 6rem;
+}
+.foodbar li:last-of-type {
+  margin-right: 5rem;
+}
+.foodbar select {
+  text-align: center;
+  border: none;
+  color: grey;
+}
+
+.sidebar {
+  width: 40rem;
+  margin-left: 9rem;
+}
+.sidebar > div {
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  flex-wrap: nowrap;
+  border: 0.03rem solid rgb(238, 231, 231);
+}
+.sidebar div img {
+  width: 4rem;
+  height: 4rem;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 1rem;
+}
+.sidebar div:hover {
+  background-color: rgba(186, 233, 186, 0.5);
+}
+
+.main-page {
+  display: flex;
+  justify-content: space-around;
+  align-items: none;
+  flex-wrap: nowrap;
+}
+
+.main {
+  width: 160rem;
+  flex-grow: 4;
+  margin-right: 10rem;
+}
+
+.main1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: none;
+  flex-wrap: wrap;
+}
+.main1 select {
+  color: green;
+}
+.main1 div {
+  padding: 0.6rem 1rem;
+}
+.main1 div:first-of-type {
+  font-weight: bolder;
+}
+
+.main2 {
+  display: flex;
+  justify-content: none;
+  align-items: none;
+  flex-wrap: wrap;
+}
+.main2 > div {
+  border: 0.03rem solid rgb(238, 231, 231);
+  width: 15rem;
+}
+
+.main2-offer {
+  background-color: #538cee;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  margin-right: 9rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.main2-image img {
+  width: 8rem;
+  margin-left: 3.5rem;
+  border: none;
+}
+
+.main2-source {
+  text-align: end;
+  margin-right: 1rem;
+  margin-left: 5rem;
+  background-color: rgb(235, 255, 239);
+  color: rgb(58, 183, 87);
+}
+
+.main2-name {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.main2-weight {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: grey;
+}
+
+.main2-last {
+  display: flex;
+  justify-content: space-between;
+  align-items: none;
+  flex-wrap: wrap;
+  margin: 0.5rem;
+  padding-right: 2rem;
+}
+
+.main2-price {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.adding-btn-div {
+  display: flex;
+  justify-content: space-around;
+  align-items: none;
+  flex-wrap: wrap;
+  width: 6rem;
+  height: 2rem;
+  background-color: rgb(235, 255, 239);
+  border-radius: 0.25rem;
+  border: 0.03rem solid green;
+  font-weight: bolder;
+}
+
+.adding-btn {
+  color: green;
+  font-weight: bolder;
+}
+
+.minus, .count, .plus {
+  color: white;
+  font-weight: bolder;
+}
+
+.speciality {
+  display: flex;
+  justify-content: space-around;
+  align-items: none;
+  flex-wrap: wrap;
+  margin-top: 6rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+.speciality > div {
+  width: 23rem;
+  border: 0.03rem solid rgb(238, 231, 231);
+  border-radius: 1rem;
+}
+.speciality img {
+  width: 6rem;
+  margin: 0 9rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+.speciality p {
+  text-align: center;
+}
+.speciality p:first-of-type {
+  font-weight: bolder;
+}
+.speciality p:last-of-type {
+  padding: 1rem 1rem 2rem 1rem;
+  color: grey;
+}
+
+.information {
+  width: 79rem;
+  margin: 3rem 10rem;
+}
+.information p {
+  padding: 0 2rem 2rem 2rem;
+  color: grey;
+  border-bottom: 0.03rem solid rgb(238, 231, 231);
+}
+
+.fotter {
+  display: flex;
+  justify-content: none;
+  align-items: none;
+  flex-wrap: wrap;
+  background-color: rgba(246, 240, 240, 0.36);
+}
+.fotter div {
+  margin-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.fotter div:nth-of-type(2) {
+  display: flex;
+  justify-content: none;
+  align-items: none;
+  flex-wrap: wrap;
+  width: 30rem;
+}
+.fotter div:nth-of-type(2) p {
+  font-weight: bolder;
+  padding-right: 1rem;
+  text-align: center;
+}
+.fotter div:first-of-type {
+  padding-left: 10rem;
+  width: 28rem;
+}
+.fotter div:last-of-type {
+  width: 12rem;
+  margin-left: 4rem;
+}
+.fotter p {
+  color: grey;
+}
+.fotter .download-text {
+  padding-top: 0.6rem;
+}
+.fotter img {
+  width: 8rem;
+  height: 2.5rem;
+  text-align: center;
+}
+.fotter img:first-of-type {
+  margin-right: 1rem;
+}
+.fotter svg:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=Homepage.css.map */
